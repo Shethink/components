@@ -4,7 +4,6 @@ import {
 } from "@mui/material";
 import classnames from "classnames";
 import React from "react";
-// import { withClickable } from "../clickable";
 import { buttonClasses, StyledButton, StyledIconButton } from "./styles";
 
 type Variant = "text" | "outlined" | "contained" | "opaqueOutlined";

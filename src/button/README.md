@@ -1,8 +1,5 @@
 This component wraps the [Material-UI Button component](https://material-ui.com/components/buttons/), with a few changes
 
-The Button is wrapped in a `Clickable` component and it accepts a `action?: ClickableAction`. See the Clickable specs
-for more info.
-
 ## Variants
 
 ### Contained (default)

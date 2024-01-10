@@ -2,16 +2,6 @@ import Button, { buttonClasses, ButtonProps, IconButtonProps } from "./button";
 
 import Checkbox, { CheckboxProps } from "./checkbox";
 
-import Clickable, {
-  ClickableAction,
-  ClickableDefault,
-  ClickableProps,
-  DownloadLink,
-  HtmlLink,
-  RouterLink,
-  withClickable,
-} from "./clickable";
-
 import Container, { ContainerProps, containerClasses } from "./container";
 
 import CreateSequence, {
@@ -50,7 +40,6 @@ export {
   Button,
   buttonClasses,
   Checkbox,
-  Clickable,
   Close,
   Container,
   containerClasses,
@@ -71,23 +60,16 @@ export {
   Switch,
   TextField,
   ThemeProvider,
-  withClickable,
 };
 export type {
   ButtonProps,
   CheckboxProps,
-  ClickableAction,
-  ClickableDefault,
-  ClickableProps,
   ContainerProps,
   CreateSequenceProps,
   SequenceOptions,
-  DownloadLink,
-  HtmlLink,
   IconButtonProps,
   InputProps,
   ModalProps,
-  RouterLink,
   SelectOption,
   SelectProps,
   SequenceListItem,

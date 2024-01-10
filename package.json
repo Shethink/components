@@ -28,9 +28,6 @@
       "checkbox": [
         "./dist/checkbox/index.d.ts"
       ],
-      "clickable": [
-        "./dist/clickable/index.d.ts"
-      ],
       "container": [
         "./dist/container/index.d.ts"
       ],
@@ -80,11 +77,6 @@
       "require": "./dist/checkbox/index.js",
       "import": "./dist/esm/checkbox/index.js",
       "types": "./dist/checkbox/index.d.ts"
-    },
-    "./clickable": {
-      "require": "./dist/clickable/index.js",
-      "import": "./dist/esm/clickable/index.js",
-      "types": "./dist/clickable/index.d.ts"
     },
     "./container": {
       "require": "./dist/container/index.js",
