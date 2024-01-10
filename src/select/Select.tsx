@@ -1,4 +1,5 @@
 import React from "react";
+import { alpha } from "@mui/system";
 import ReactSelect, {
   ActionMeta,
   GroupBase,
@@ -10,6 +11,7 @@ import ReactSelect, {
 } from "react-select";
 import makeAnimated from "react-select/animated";
 import { SelectComponents } from "react-select/dist/declarations/src/components";
+import { colours } from "../theme-provider";
 
 export type SelectOption = {
   label: string;
@@ -35,6 +37,7 @@ export interface SelectProps {
   >;
   styles?: StylesConfig<SelectOption, boolean, GroupBase<SelectOption>>;
   isInsideModal?: boolean;
+  optionsContainCheckbox?: boolean;
 }
 
 const Select: React.FC<SelectProps> = ({
@@ -48,19 +51,22 @@ const Select: React.FC<SelectProps> = ({
   optionComponent,
   styles,
   isInsideModal,
+  optionsContainCheckbox,
   onChange,
 }) => {
   const animatedComponents = makeAnimated();
 
-  const Option = (props: OptionProps<SelectOption>) => {
+  const Option: React.FC<OptionProps<SelectOption>> = (props) => {
     return (
       <div>
         <SelectComponent.Option {...props}>
-          {/* <input
-            type="checkbox"
-            checked={props.isSelected}
-            onChange={() => null}
-          />{" "} */}
+          {optionsContainCheckbox && (
+            <input
+              type="checkbox"
+              checked={props.isSelected}
+              onChange={() => null}
+            />
+          )}
           <label>{props.label}</label>
         </SelectComponent.Option>
       </div>
@@ -93,12 +99,22 @@ const Select: React.FC<SelectProps> = ({
         control: (baseStyles, state) => ({
           ...baseStyles,
           fontSize: "13px",
-          outline: "none",
-          //   borderColor: state.isFocused ? "orange" : "pink",
-          //   border: 1,
-          //   boxShadow: state.isFocused ? "none" : "0px 1px rgba(0,0,0,0.3)",
         }),
+        option: (baseStyles, state) => ({
+          transition: ".3s ease",
+          borderRadius: "8px",
+          padding: "6px 12px",
+          cursor: "pointer",
+          fontSize: "14px",
+          marginBottom: "5px",
 
+          "&: hover": {
+            background: alpha(colours.primary, 0.08),
+          },
+        }),
+        menuList: () => ({
+          padding: ".5rem",
+        }),
         ...styles,
       }}
     />
