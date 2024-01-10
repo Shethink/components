@@ -1,6 +1,5 @@
 import { styled } from "@mui/material/styles";
 import { Card as MaterialCard, Typography } from "@mui/material";
-import { colours } from "../theme-provider";
 
 const PREFIX = "Card";
 
@@ -8,7 +7,7 @@ export const cardClasses = {
   root: `${PREFIX}-root`,
 };
 
-export const Card = styled(MaterialCard)(() => ({
+export const Card = styled(MaterialCard)(({ theme: { colours } }) => ({
   [`&.${cardClasses.root}`]: {
     padding: "1.5rem",
     boxShadow: "none",
@@ -52,7 +51,7 @@ export const CreateSequenceFormLabel = styled(Typography)(() => ({
   marginTop: 1,
 }));
 
-export const SchedulesContainer = styled("div")(() => ({
+export const SchedulesContainer = styled("div")(({ theme: { colours } }) => ({
   background: colours.white,
   boxShadow: "0 3px 6px 0 rgba(0,0,0,.09);",
   marginTop: "1.5rem",
@@ -60,11 +59,13 @@ export const SchedulesContainer = styled("div")(() => ({
   borderRadius: "6px",
 }));
 
-export const CreateSequenceFormButtonsContainer = styled("div")(() => ({
-  border: `1px solid ${colours.white500}`,
-  borderRadius: "3px",
-  width: "100%",
-  marginTop: "3rem",
-  background: colours.white,
-  padding: "1rem",
-}));
+export const CreateSequenceFormButtonsContainer = styled("div")(
+  ({ theme: { colours } }) => ({
+    border: `1px solid ${colours.white500}`,
+    borderRadius: "3px",
+    width: "100%",
+    marginTop: "3rem",
+    background: colours.white,
+    padding: "1rem",
+  })
+);

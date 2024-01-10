@@ -1,18 +1,18 @@
 {
-  "name": "@shethink/email-sequence-components",
-  "version": "1.0.10",
-  "main": "dist/index.js",
+  "name": "@shethink/components",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
   "src": "src/index.ts",
+  "main": "dist/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "tsc",
     "build": "tsc -p tsconfig.cjs.json && tsc -p tsconfig.esm.json && rollup -c --bundleConfigAsCjs",
-    "workbench": "styleguidist server --config styleguide.config.cjs",
+    "dev": "styleguidist server --config styleguide.config.cjs",
     "workbench:build": "styleguidist build --config styleguide.config.cjs"
   },
-  "license": "UNLICENSED",
   "files": [
     "dist/",
     "package.json"
@@ -136,10 +136,10 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.0",
-    "@mui/lab": "^5.0.0-alpha.136",
-    "@mui/material": "^5.14.0",
-    "@mui/styles": "^5.14.0",
-    "@mui/system": "^5.14.0",
+    "@mui/lab": "^5.0.0-alpha.157",
+    "@mui/material": "^5.15.1",
+    "@mui/styles": "^5.15.1",
+    "@mui/system": "^5.15.1",
     "classnames": "^2.3.2",
     "react-is": "^18.2.0",
     "react-select": "^5.7.4"

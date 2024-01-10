@@ -1,9 +1,8 @@
 import { Card } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { colours } from "../theme-provider";
 import Typography from "../typography";
 
-export const StepsHeader = styled("div")({
+export const StepsHeader = styled("div")(({ theme: { colours } }) => ({
   background: colours.white,
   display: "flex",
   alignItems: "center",
@@ -11,13 +10,13 @@ export const StepsHeader = styled("div")({
   borderTopLeftRadius: 6,
   borderTopRightRadius: 6,
   padding: "1rem",
-});
+}));
 
-export const Title = styled(Typography)({
+export const Title = styled(Typography)(({ theme: { colours } }) => ({
   fontSize: "1rem",
   fontWeight: "500",
   color: colours.black200,
-});
+}));
 
 export const StepsBody = styled("div")({
   padding: "0 1rem",
@@ -46,7 +45,7 @@ export const StepCard = styled(Card)<{
   },
 }));
 
-export const AITagContainer = styled("div")({
+export const AITagContainer = styled("div")(({ theme: { colours } }) => ({
   background: colours.blue100,
   marginLeft: ".7rem",
   borderRadius: "4px",
@@ -54,10 +53,10 @@ export const AITagContainer = styled("div")({
   alignItems: "center",
   color: colours.blue500,
   padding: ".2rem .8rem",
-});
+}));
 
-export const AITag = styled(Typography)({
+export const AITag = styled(Typography)(({ theme: { colours } }) => ({
   marginLeft: 5,
   color: `${colours.blue500} !important`,
   fontSize: "12px !important",
-});
+}));

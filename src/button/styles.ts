@@ -1,6 +1,5 @@
 import { alpha, Button as MaterialButton, IconButton } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { colours } from "../theme-provider";
 
 const PREFIX = "Button";
 
@@ -23,7 +22,7 @@ export const buttonClasses = {
 };
 
 export const StyledButton = styled(MaterialButton)(
-  ({ theme: { palette } }) => ({
+  ({ theme: { palette, colours } }) => ({
     [`&.${buttonClasses.root}`]: {
       fontSize: ".8rem",
       borderRadius: 3,

@@ -1,6 +1,5 @@
 import { Modal } from "@mui/material";
 import { alpha, styled } from "@mui/material/styles";
-import { colours } from "../theme-provider";
 
 const PREFIX = "Modal";
 
@@ -20,7 +19,7 @@ export const StyledModal = styled(Modal)(() => ({
   },
 }));
 
-export const ModalContainer = styled("div")(() => ({
+export const ModalContainer = styled("div")(({ theme: { colours } }) => ({
   minWidth: "45vw",
   maxWidth: "60vw",
   background: alpha(colours.white, 1),

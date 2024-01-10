@@ -1,6 +1,5 @@
 import { styled } from "@mui/material/styles";
 import { Switch } from "@mui/material";
-import { colours } from "../theme-provider";
 
 export const StyledSwitch = styled(Switch)(({ theme, size }) => ({
   width: size === "small" ? 35 : 50,
@@ -14,7 +13,7 @@ export const StyledSwitch = styled(Switch)(({ theme, size }) => ({
 
     "&.Mui-checked": {
       transform: `translateX(${size === "small" ? "18px" : "23px"})`,
-      color: colours.white,
+      color: theme.colours.white,
       "& + .MuiSwitch-track": {
         backgroundColor: theme.palette.primary.main,
         opacity: 1,

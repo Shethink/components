@@ -1,11 +1,11 @@
+import CssBaseline from "@mui/material/CssBaseline";
+import { tooltipClasses } from "@mui/material/Tooltip";
 import {
   createTheme,
-  CssBaseline,
   SimplePaletteColorOptions,
   ThemeOptions as MuiThemeOptions,
   ThemeProvider as MaterialThemeProvider,
-  tooltipClasses,
-} from "@mui/material";
+} from "@mui/material/styles";
 import React from "react";
 import {
   poppinsRegularFont,
@@ -233,6 +233,7 @@ export const getTheme = (
     },
     ...getCssOverrides(),
   };
+
   return createTheme(modifyTheme(defaultTheme));
 };
 

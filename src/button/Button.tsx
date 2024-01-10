@@ -4,7 +4,7 @@ import {
 } from "@mui/material";
 import classnames from "classnames";
 import React from "react";
-import { withClickable } from "../clickable";
+// import { withClickable } from "../clickable";
 import { buttonClasses, StyledButton, StyledIconButton } from "./styles";
 
 type Variant = "text" | "outlined" | "contained" | "opaqueOutlined";
@@ -95,4 +95,4 @@ const Button = ({
   );
 };
 
-export default withClickable<ButtonProps | IconButtonProps>(Button);
+export default Button;

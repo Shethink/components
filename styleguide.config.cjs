@@ -2,25 +2,10 @@
 
 const path = require("path");
 const fs = require("fs");
-const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
+const webpackConfig = require("./webpack.config.cjs");
 
 module.exports = {
-  template: {
-    head: {
-      links: [
-        {
-          rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap",
-        },
-      ],
-    },
-  },
-  theme: {
-    fontFamily: {
-      base: "Poppins",
-    },
-  },
-  title: "Sourcebae email sequence workbench",
+  title: "Sourcebae workbench",
   ignore: ["**/__tests__/**", "**/node_modules/**"],
   exampleMode: "expand",
   defaultExample: true,
@@ -59,7 +44,7 @@ module.exports = {
     const componentName = path.basename(componentPath, ".tsx");
 
     // NOTE: this is displayed under the component name
-    return `import { ${componentName} } from "@shethink/email-sequence-components";`;
+    return `import { ${componentName} } from "@shethink/components";`;
   },
 
   getExampleFilename: (componentPath) => {
@@ -74,7 +59,6 @@ module.exports = {
 
     const exampleFile = path.join(componentPath, "../../README.md");
 
-    // eslint-disable-next-line security/detect-non-literal-fs-filename
     if (fs.existsSync(exampleFile)) {
       return exampleFile;
     }
@@ -86,91 +70,7 @@ module.exports = {
     "./tsconfig.json"
   ).parse,
 
-  webpackConfig: {
-    entry: "./src/index.ts",
-    module: {
-      rules: [
-        {
-          test: /\.js(x?)$/,
-          use: [
-            {
-              loader: "babel-loader",
-              options: {
-                presets: [
-                  [
-                    "@babel/preset-env",
-                    {
-                      modules: false,
-                      targets: {
-                        node: "current",
-                      },
-                    },
-                  ],
-                  "@babel/preset-react",
-                ],
-                env: {
-                  production: {
-                    presets: ["minify"],
-                  },
-                  test: {
-                    presets: ["@babel/preset-env", "@babel/preset-react"],
-                  },
-                },
-              },
-            },
-          ], // , 'source-map-loader'],
-          exclude: /node_modules/,
-        },
-        {
-          test: /\.ts(x?)$/,
-          exclude: /node_modules/,
-          use: [
-            {
-              loader: "ts-loader",
-              options: {
-                transpileOnly: true,
-              },
-            },
-          ],
-        },
-        {
-          test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
-          exclude: /node_modules/,
-          use: [
-            {
-              loader: "url-loader",
-              options: {
-                fallback: "file-loader",
-                name: "[name].[ext]",
-                outputPath: "fonts/",
-                limit: 8192,
-              },
-            },
-          ],
-        },
-        {
-          test: /\.(png|jpg|gif)$/i,
-          exclude: /node_modules/,
-          use: [
-            {
-              loader: "url-loader",
-              options: {
-                limit: 8192,
-              },
-            },
-          ],
-        },
-      ],
-    },
-    resolve: {
-      extensions: [".ts", ".tsx", ".js"],
-      plugins: [
-        new TsconfigPathsPlugin({
-          configFile: "./tsconfig.json",
-        }),
-      ],
-    },
-  },
+  webpackConfig,
 
   styles: () => ({
     Playground: {
@@ -182,4 +82,19 @@ module.exports = {
       },
     },
   }),
+  template: {
+    head: {
+      links: [
+        {
+          rel: "stylesheet",
+          href: "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap",
+        },
+      ],
+    },
+  },
+  theme: {
+    fontFamily: {
+      base: "Poppins",
+    },
+  },
 };

@@ -24,17 +24,18 @@ export type SequenceOptions = {
   subtitle: string;
 };
 
-export interface CreateSequenceProps extends ModalProps {
+export type CreateSequenceProps = Omit<ModalProps, "onClose"> & {
   createOptions: SequenceOptions[];
   sequenceName: string;
   handleSequenceNameChange: (name: string) => void;
+  onClose: () => void;
   title?: string;
   subheader?: string;
   step2Title?: string;
   permissionsOptions: SelectOption[];
   schedules?: SelectOption[];
   handleCreate: () => void;
-}
+};
 
 const CreateSequence: React.FC<CreateSequenceProps> = ({
   createOptions,
