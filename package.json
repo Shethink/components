@@ -69,12 +69,6 @@
       ],
       "typography": [
         "./dist/typography/index.d.ts"
-      ],
-      "custom-select":[
-        "./dist/custom-select/index.d.ts"
-      ],
-      "divider":[
-        "./dist/divider/index.d.ts"
       ]
     }
   },

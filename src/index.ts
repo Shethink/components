@@ -68,7 +68,10 @@ export {
   TextField,
   ThemeProvider,
   Typography,
+<<<<<<< HEAD
   Visibility,
+=======
+>>>>>>> 5ff1efc (fixing minor issues in versions)
 };
 export type {
   ButtonProps,
