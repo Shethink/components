@@ -15,7 +15,7 @@ const getTypographyVariant = (
   variant?: TypographyProps["variant"]
 ): MaterialTypographyProps["variant"] => {
   if (!variant) {
-    return undefined;
+    return "h6";
   }
 
   switch (variant) {

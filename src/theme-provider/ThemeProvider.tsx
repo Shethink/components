@@ -43,6 +43,7 @@ export const colours = {
 
   white: "#ffffff",
   white100: "#f7f7f7",
+  white200: "#e6e6e6",
   white500: "#cacacc",
   white800: "#919191",
 };
