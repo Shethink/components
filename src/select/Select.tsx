@@ -53,6 +53,7 @@ const Select: React.FC<SelectProps> = ({
   isInsideModal,
   optionsContainCheckbox,
   onChange,
+
 }) => {
   const animatedComponents = makeAnimated();
 
@@ -107,7 +108,6 @@ const Select: React.FC<SelectProps> = ({
           cursor: "pointer",
           fontSize: "14px",
           marginBottom: "5px",
-
           "&: hover": {
             background: alpha(colours.primary, 0.08),
           },

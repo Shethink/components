@@ -54,6 +54,12 @@
       ],
       "text-field": [
         "./dist/text-field/index.d.ts"
+      ],
+      "custom-select":[
+        "./dist/custom-select/index.d.ts"
+      ],
+      "divider":[
+        "./dist/divider/index.d.ts"
       ]
     }
   },
@@ -63,6 +69,7 @@
       "import": "./dist/esm/index.js",
       "types": "./dist/index.d.ts"
     },
+
     "./theme-provider": {
       "require": "./dist/theme-provider/index.js",
       "import": "./dist/esm/theme-provider/index.js",
@@ -117,6 +124,16 @@
       "require": "./dist/switch/index.js",
       "import": "./dist/esm/switch/index.js",
       "types": "./dist/switch/index.d.ts"
+    },
+    "./custom-select":{
+      "require": "./dist/custom-select/index.js",
+      "import": "./dist/esm/custom-select/index.js",
+      "types": "./dist/custom-select/index.d.ts"
+    },
+    "./divider":{
+      "require": "./dist/divider/index.js",
+      "import": "./dist/esm/divider/index.js",
+      "types": "./dist/divider/index.d.ts"
     },
     "./text-field": {
       "require": "./dist/text-field/index.js",
