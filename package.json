@@ -25,6 +25,9 @@
       "button": [
         "./dist/button/index.d.ts"
       ],
+      "button-radio-group": [
+        "./dist/button-radio-group/index.d.ts"
+      ],
       "checkbox": [
         "./dist/checkbox/index.d.ts"
       ],
@@ -79,6 +82,11 @@
       "require": "./dist/button/index.js",
       "import": "./dist/esm/button/index.js",
       "types": "./dist/button/index.d.ts"
+    },
+    "./button-radio-group": {
+      "require": "./dist/button-radio-group/index.js",
+      "import": "./dist/esm/button-radio-group/index.js",
+      "types": "./dist/button-radio-group/index.d.ts"
     },
     "./checkbox": {
       "require": "./dist/checkbox/index.js",
