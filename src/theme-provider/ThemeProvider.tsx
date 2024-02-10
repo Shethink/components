@@ -19,6 +19,7 @@ export const colours = {
   bodyBgBase: "#fff",
 
   black: "#000000",
+  black100: "#192023",
   black200: "#1a1a1a",
   black400: "#474747",
   black800: "#e3e3e5",
