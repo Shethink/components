@@ -9,7 +9,7 @@ import CreateSequence, {
   SequenceOptions,
 } from "./create-sequence";
 
-import { Close, Star } from "./icon";
+import { Close, Star, AutoAwesome, ArrowBack } from "./icon";
 
 import Modal, { modalClasses, ModalProps } from "./modal";
 
