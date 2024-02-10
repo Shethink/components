@@ -9,6 +9,8 @@ import CreateSequence, {
   SequenceOptions,
 } from "./create-sequence";
 
+import GoogleAuth from "./google-auth/GoogleAuth";
+
 import { Close, Star, AutoAwesome, ArrowBack } from "./icon";
 
 import Modal, { modalClasses, ModalProps } from "./modal";
@@ -47,6 +49,7 @@ export {
   containerClasses,
   CreateSequence,
   getTheme,
+  GoogleAuth,
   inputClasses,
   Modal,
   modalClasses,
