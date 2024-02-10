@@ -1,6 +1,6 @@
 {
   "name": "@sourcebae/components",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "license": "UNLICENSED",
   "src": "src/index.ts",
   "main": "dist/index.js",
