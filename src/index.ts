@@ -68,7 +68,6 @@ export {
   TextField,
   ThemeProvider,
   Typography,
-  Visibility,
 };
 export type {
   ButtonProps,
