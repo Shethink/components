@@ -11,7 +11,7 @@ import CreateSequence, {
 
 import GoogleAuth from "./google-auth/GoogleAuth";
 
-import { Close, Star, AutoAwesome, ArrowBack } from "./icon";
+import { Close, Star, AutoAwesome, ArrowBack, Visibility } from "./icon";
 
 import Modal, { modalClasses, ModalProps } from "./modal";
 
@@ -41,6 +41,8 @@ import ThemeProvider, {
 import Typography from "./typography";
 
 export {
+  AutoAwesome,
+  ArrowBack,
   Button,
   buttonClasses,
   Checkbox,
@@ -66,6 +68,7 @@ export {
   TextField,
   ThemeProvider,
   Typography,
+  Visibility,
 };
 export type {
   ButtonProps,
