@@ -36,6 +36,8 @@ import ThemeProvider, {
   ThemeOptions,
 } from "./theme-provider";
 
+import Typography from "./typography";
+
 export {
   Button,
   buttonClasses,
@@ -60,6 +62,7 @@ export {
   Switch,
   TextField,
   ThemeProvider,
+  Typography,
 };
 export type {
   ButtonProps,

@@ -1,6 +1,6 @@
 {
   "name": "@sourcebae/components",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "license": "UNLICENSED",
   "src": "src/index.ts",
   "main": "dist/index.js",
@@ -57,6 +57,9 @@
       ],
       "text-field": [
         "./dist/text-field/index.d.ts"
+      ],
+      "typography": [
+        "./dist/typography/index.d.ts"
       ]
     }
   },
@@ -130,6 +133,11 @@
       "require": "./dist/text-field/index.js",
       "import": "./dist/esm/text-field/index.js",
       "types": "./dist/text-field/index.d.ts"
+    },
+    "./typography": {
+      "require": "./dist/typography/index.js",
+      "import": "./dist/esm/typography/index.js",
+      "types": "./dist/typography/index.d.ts"
     }
   },
   "dependencies": {
