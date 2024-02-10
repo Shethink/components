@@ -19,6 +19,8 @@ export type InputProps = Omit<ComponentProps<typeof Input>, "onChange"> & {
   maxLength?: number;
   placeholder?: string;
   EndIconAdornment?: React.ReactNode;
+  isExtraPadded?: boolean;
+  isLargeVariant?: boolean;
 };
 
 const TextField: React.FC<InputProps> = ({
@@ -30,6 +32,8 @@ const TextField: React.FC<InputProps> = ({
   maxLength,
   placeholder,
   EndIconAdornment,
+  isExtraPadded,
+  isLargeVariant,
   ...props
 }) => {
   const handleChange = (
@@ -56,7 +60,9 @@ const TextField: React.FC<InputProps> = ({
           placeholder={placeholder ?? "Placeholder"}
           className={classNames(
             variant === "outlined" && inputClasses.outlined,
-            variant === "contained" && inputClasses.contained
+            variant === "contained" && inputClasses.contained,
+            isExtraPadded && inputClasses.extraPadded,
+            isLargeVariant && inputClasses.large
           )}
           onChange={handleChange}
         />

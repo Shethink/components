@@ -6,6 +6,8 @@ const PREFIX = "Input";
 export const inputClasses = {
   outlined: `${PREFIX}-outlined`,
   contained: `${PREFIX}-contained`,
+  extraPadded: `${PREFIX}-extra-padded`,
+  large: `${PREFIX}-large`,
 };
 
 export const StyledLabel = styled(Typography)(({ theme }) => ({
@@ -20,6 +22,14 @@ export const Input = styled("input")(({ theme }) => ({
   borderRadius: "6px",
   paddingLeft: "6px",
   color: theme.colours.black200,
+
+  [`&.${inputClasses.extraPadded}`]: {
+    paddingLeft: "18px",
+  },
+
+  [`&.${inputClasses.large}`]: {
+    height: "50px",
+  },
 
   "&:focus": {
     outline: "none",
