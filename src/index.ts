@@ -52,6 +52,7 @@ export {
   Container,
   containerClasses,
   CreateSequence,
+  CustomSelect,
   getTheme,
   GoogleAuth,
   inputClasses,
@@ -89,5 +90,4 @@ export type {
   SwitchProps,
   ThemeOptions,
   Divider,
-  CustomSelect
 };
