@@ -7,9 +7,9 @@ import {
     OptionListBox,
     DropDownOption,
     EmptyRadio,
-    CheckCircleIconCustom,
+    StyledCheckCircleIcon,
     OptionItemBox,
-    KeyboardArrowUpIconCustom,
+    StyledKeyboardArrowUpIcon,
     Text,
     LabelBox,
     SearchIconBox,
@@ -73,17 +73,12 @@ const CustomSelect = ({ option, selectedlist, setselectedList }: Props) => {
 
     return (
         <Container>
-            <Text
-                fontSize={"20px"}
-                fontWeight={"500"}
-                fontFamily={"sans-serif"}
-                color={"#192023"}
-            >
+            <Text>
                 Services
             </Text>
             <BoxContainer onClick={() => setIsOpen(!isOpen)} isOpen={isOpen}>
                 <Typography>{handleChips()}</Typography>
-                <KeyboardArrowUpIconCustom isOpen={isOpen}></KeyboardArrowUpIconCustom>
+                <StyledKeyboardArrowUpIcon isOpen={isOpen}></StyledKeyboardArrowUpIcon>
             </BoxContainer>
             {isOpen && (
                 <DropDownOption>
@@ -93,9 +88,8 @@ const CustomSelect = ({ option, selectedlist, setselectedList }: Props) => {
                                 return (
                                     <OptionItemBox
                                         onClick={() => handleRemoveItem(item?.id, item?.name)}
-                                        key={item.id}
-                                    >
-                                        <CheckCircleIconCustom />{" "}
+                                        key={item.id}>
+                                        <StyledCheckCircleIcon />{" "}
                                         <Text>
                                             {item.name}
                                         </Text>

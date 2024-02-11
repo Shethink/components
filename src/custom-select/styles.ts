@@ -9,7 +9,7 @@ import SearchIcon from "../icon/search-icon";
 export const BoxContainer = styled(Container)<{ isOpen: boolean }>(
     ({ isOpen, theme }) => ({
         border: `1px solid #D8D7E1`,
-        borderRadius: isOpen ? "6px 6px 0px 0px" : "6px 6px 6px 6px",
+        borderRadius: isOpen ? "6px 6px 0px 0px" : "6px",
         padding: "5px",
         display: "flex",
         justifyContent: "space-between",
@@ -48,7 +48,7 @@ export const EmptyRadio = styled(Container)(() => ({
     maxWidth: "fit-Content",
 }));
 
-export const CheckCircleIconCustom = styled(CheckCircleIcon)(() => ({
+export const StyledCheckCircleIcon = styled(CheckCircleIcon)(() => ({
     padding: "0",
     margin: "0 5px 0 0",
     width: "22px",
@@ -67,7 +67,7 @@ export const OptionItemBox = styled(MuiContainer)(() => ({
     width: "50% !important",
 }));
 
-export const KeyboardArrowUpIconCustom = styled(KeyboardArrowUpIcon)<{
+export const StyledKeyboardArrowUpIcon = styled(KeyboardArrowUpIcon)<{
     isOpen: boolean;
 }>(({ isOpen }) =>
     isOpen
