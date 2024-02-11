@@ -12,7 +12,7 @@ import {
     KeyboardArrowUpIconCustom,
     Text,
     LabelBox,
-    SearchIconBox
+    SearchIconBox,
 } from "./styles";
 import Typography from "../typography";
 import Divider from "../divider";
@@ -43,16 +43,21 @@ const CustomSelect = ({ option, selectedlist, setselectedList }: Props) => {
     };
 
     const handleChips = () => {
-
         if (isOpen) {
-            return <LabelBox >
-                <SearchIconBox height={24} width={20} /> <Text fontSize={"20px"} fontWeight={"500"} fontFamily={"sans-serif"} color={"#192023"}>Services</Text>
-            </LabelBox>;
+            return (
+                <LabelBox>
+                    <SearchIconBox height={24} width={20} />{" "}
+                    <Text variant="h5">Services</Text>
+                </LabelBox>
+            );
         } else {
             if (selectedlist.length == 0) {
-                return <LabelBox >
-                    <SearchIconBox height={24} width={20} /> <Text fontSize={"20px"} fontWeight={"500"} fontFamily={"sans-serif"} color={"#192023"}>Services</Text>
-                </LabelBox>;
+                return (
+                    <LabelBox>
+                        <SearchIconBox height={24} width={20} />{" "}
+                        <Text variant="h5">Services</Text>
+                    </LabelBox>
+                );
             } else
                 return selectedlist?.map((item: { id: number; name: string }) => {
                     return (
@@ -68,7 +73,14 @@ const CustomSelect = ({ option, selectedlist, setselectedList }: Props) => {
 
     return (
         <Container>
-            <Text fontSize={"20px"} fontWeight={"500"} fontFamily={"sans-serif"} color={"#192023"}>Services</Text>
+            <Text
+                fontSize={"20px"}
+                fontWeight={"500"}
+                fontFamily={"sans-serif"}
+                color={"#192023"}
+            >
+                Services
+            </Text>
             <BoxContainer onClick={() => setIsOpen(!isOpen)} isOpen={isOpen}>
                 <Typography>{handleChips()}</Typography>
                 <KeyboardArrowUpIconCustom isOpen={isOpen}></KeyboardArrowUpIconCustom>
@@ -84,7 +96,9 @@ const CustomSelect = ({ option, selectedlist, setselectedList }: Props) => {
                                         key={item.id}
                                     >
                                         <CheckCircleIconCustom />{" "}
-                                        <Text fontSize={"20px"} fontWeight={"500"} fontFamily={"sans-serif"} color={"#192023"} >{item.name}</Text>
+                                        <Text>
+                                            {item.name}
+                                        </Text>
                                     </OptionItemBox>
                                 );
                             })}
@@ -104,17 +118,19 @@ const CustomSelect = ({ option, selectedlist, setselectedList }: Props) => {
                                 return (
                                     <OptionItemBox
                                         onClick={() => handleOnClick(item?.id, item?.name)}
-                                        key={item.id}>
+                                        key={item.id}
+                                    >
                                         <EmptyRadio></EmptyRadio>{" "}
-                                        <Text fontSize={"20px"} fontWeight={"500"} fontFamily={"sans-serif"} color={"#192023"} >{item.name}</Text>
+                                        <Text>
+                                            {item.name}
+                                        </Text>
                                     </OptionItemBox>
                                 );
                             })}
                     </OptionListBox>
                 </DropDownOption>
-            )
-            }
-        </Container >
+            )}
+        </Container>
     );
 };
 
