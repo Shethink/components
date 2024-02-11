@@ -4,7 +4,7 @@ import { Container as AnotherContainer } from "@mui/material";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Typography from "src/typography";
-
+import SearchIcon from "src/icon/search-icon";
 export const BoxContainer = styled(Container)<{ isOpen: boolean }>(({ isOpen, theme }) => ({
     border: `1px solid #D8D7E1`,
     borderRadius: isOpen ? "6px 6px 0px 0px" : "6px 6px 6px 6px",
@@ -84,5 +84,17 @@ export const Text = styled(Typography)<{ fontSize: string | undefined, fontFamil
 
 
 
+export const LabelBox = styled(AnotherContainer)(() => ({
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: "center",
+    padding: "0 !important",
+}))
 
-
+export const SearchIconBox = styled(SearchIcon)(() => ({
+    marginRight: "10px",
+    padding: "0 !important",
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+}))

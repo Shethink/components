@@ -10,7 +10,9 @@ import {
     CheckCircleIconCustom,
     OptionItemBox,
     KeyboardArrowUpIconCustom,
-    Text
+    Text,
+    LabelBox,
+    SearchIconBox
 } from "./styles";
 import Typography from "../typography";
 import Divider from "../divider";
@@ -43,12 +45,14 @@ const CustomSelect = ({ option, selectedlist, setselectedList }: Props) => {
     const handleChips = () => {
 
         if (isOpen) {
-            return <Container style={{ display: 'flex', justifyContent: 'center', alignItems: "center", padding: 0 }}>
-                <SearchIcon style={{ marginRight: "10px", padding: "0", display: 'flex', justifyContent: 'center', alignItems: "center", }} height={24} width={20} /> <Text fontSize={"20px"} fontWeight={"500"} fontFamily={"sans-serif"} color={"#192023"}>Services</Text></Container>;
+            return <LabelBox >
+                <SearchIconBox height={24} width={20} /> <Text fontSize={"20px"} fontWeight={"500"} fontFamily={"sans-serif"} color={"#192023"}>Services</Text>
+            </LabelBox>;
         } else {
             if (selectedlist.length == 0) {
-                return <Container style={{ display: 'flex', justifyContent: 'center', alignItems: "center", padding: 0 }}>
-                    <SearchIcon style={{ marginRight: "10px", padding: "0", display: 'flex', justifyContent: 'center', alignItems: "center", }} height={24} width={20} /> <Text fontSize={"20px"} fontWeight={"500"} fontFamily={"sans-serif"} color={"#192023"}>Services</Text></Container>;
+                return <LabelBox >
+                    <SearchIconBox height={24} width={20} /> <Text fontSize={"20px"} fontWeight={"500"} fontFamily={"sans-serif"} color={"#192023"}>Services</Text>
+                </LabelBox>;
             } else
                 return selectedlist?.map((item: { id: number; name: string }) => {
                     return (
