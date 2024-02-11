@@ -42,6 +42,8 @@ const dummyOption = [
 
 const [selectedList, setSelectedList] = React.useState([]);
 <CustomSelect
+  label={"Services Required"}
+  placeholder={"Select Services"}
   option={dummyOption}
   selectedlist={selectedList}
   setselectedList={setSelectedList}
