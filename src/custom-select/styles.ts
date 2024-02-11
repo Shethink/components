@@ -1,12 +1,14 @@
 import { styled } from "@mui/material/styles";
 import Container from "../container";
+import { Container as AnotherContainer } from "@mui/material";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import Typography from "src/typography";
 
 export const BoxContainer = styled(Container)<{ isOpen: boolean }>(({ isOpen, theme }) => ({
     border: `1px solid #D8D7E1`,
     borderRadius: isOpen ? "6px 6px 0px 0px" : "6px 6px 6px 6px",
-    padding: "10px",
+    padding: "5px",
     display: 'flex',
     justifyContent: "space-between",
     alignItems: "center"
@@ -38,21 +40,21 @@ export const EmptyRadio = styled(Container)(() => ({
     margin: "0 5px 0 0",
     border: "1px solid #D7D8E1",
     borderRadius: "50%",
-    width: "16px",
-    height: "16px",
+    width: "20px",
+    height: "20px",
     maxWidth: "fit-Content"
 }))
 
 export const CheckCircleIconCustom = styled(CheckCircleIcon)(() => ({
     padding: "0",
     margin: "0 5px 0 0",
-    width: "18px",
-    height: "18px",
+    width: "22px",
+    height: "22px",
     color: "#02BC7D"
 }))
 
 
-export const OptionItemBox = styled(Container)(() => ({
+export const OptionItemBox = styled(AnotherContainer)(() => ({
     padding: "5px 10px !important",
     margin: "0",
     display: 'flex',
@@ -71,6 +73,13 @@ export const KeyboardArrowUpIconCustom = styled(KeyboardArrowUpIcon)<{ isOpen: b
     color: '#393a69',
     transform: "rotate(180deg)",
     transition: "transform 0.5s ease"
+}))
+
+export const Text = styled(Typography)<{ fontSize: string | undefined, fontFamily: string | undefined, color: string | undefined, fontWeight: string | undefined }>(({ fontSize, fontFamily, fontWeight, color }) => ({
+    fontSize: fontSize ?? "16px",
+    fontFamily: fontFamily ?? 'sans-serif',
+    fontWeight: fontWeight ?? "900",
+    color: color ?? "#fff",
 }))
 
 
