@@ -31,18 +31,18 @@ const CustomSelect = ({ option, selectedlist, setselectedList }: Props) => {
 
     const handleOnClick = (id: number, name: string) => {
         const array = [...selectedlist];
-        array.push({ id: id, name: name });
+        array.push({ id, name });
         setselectedList(array);
     };
     const handleRemoveItem = (id: number, name: string) => {
-        const array = selectedlist?.filter((item) => item.id !== id);
+        const array = selectedlist.filter((item) => item.id !== id);
         setselectedList(array);
     };
     const handleChips = () => {
         if (isOpen) {
             return (
                 <LabelBox>
-                    <SearchIconBox height={24} width={20} />{" "}
+                    <SearchIconBox height={24} width={20} />
                     <Text variant="h6">Services</Text>
                 </LabelBox>
             );
@@ -50,17 +50,17 @@ const CustomSelect = ({ option, selectedlist, setselectedList }: Props) => {
             if (selectedlist.length == 0) {
                 return (
                     <LabelBox>
-                        <SearchIconBox height={24} width={20} />{" "}
+                        <SearchIconBox height={24} width={20} />
                         <Text variant="h6">Services</Text>
                     </LabelBox>
                 );
             } else
-                return selectedlist?.map((item: { id: number; name: string }) => {
+                return selectedlist.map((item: { id: number; name: string }) => {
                     return (
                         <Chip
                             style={{ padding: "10px", margin: "2px" }}
-                            label={item?.name}
-                            onDelete={() => handleRemoveItem(item?.id, item?.name)}
+                            label={item.name}
+                            onDelete={() => handleRemoveItem(item.id, item.name)}
                         />
                     );
                 });
@@ -74,18 +74,18 @@ const CustomSelect = ({ option, selectedlist, setselectedList }: Props) => {
             </Text>
             <BoxContainer onClick={() => setIsOpen(!isOpen)} isOpen={isOpen}>
                 <Typography>{handleChips()}</Typography>
-                <StyledKeyboardArrowUp isOpen={isOpen}></StyledKeyboardArrowUp>
+                <StyledKeyboardArrowUp isOpen={isOpen} />
             </BoxContainer>
             {isOpen && (
                 <DropDownOption>
-                    {selectedlist?.length > 0 && (
+                    {selectedlist.length > 0 && (
                         <OptionListBox>
-                            {selectedlist?.map((item: { id: number; name: string }) => {
+                            {selectedlist.map((item: { id: number; name: string }) => {
                                 return (
                                     <OptionItemBox
-                                        onClick={() => handleRemoveItem(item?.id, item?.name)}
+                                        onClick={() => handleRemoveItem(item.id, item.name)}
                                         key={item.id}>
-                                        <StyledCheckCircle />{" "}
+                                        <StyledCheckCircle />
                                         <Text variant="h6">
                                             {item.name}
                                         </Text>
@@ -101,10 +101,10 @@ const CustomSelect = ({ option, selectedlist, setselectedList }: Props) => {
                     )}
                     <OptionListBox>
                         {option
-                            ?.filter(
+                            .filter(
                                 (option) => !selectedlist.some((item) => item.id === option.id)
                             )
-                            ?.map((item) => {
+                            .map((item) => {
                                 return (
                                     <OptionItemBox
                                         onClick={() => handleOnClick(item?.id, item?.name)}
