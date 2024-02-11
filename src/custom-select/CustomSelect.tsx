@@ -94,7 +94,7 @@ const CustomSelect = ({ option, selectedlist, setselectedList }: Props) => {
                             })}
                         </OptionListBox>
                     )}
-                    {selectedlist?.length > 0 && (
+                    {selectedlist.length > 0 && (
                         <Container style={{ width: "99%" }}>
                             <Divider color="#D8D7E1" height="100%" width="100%" />
                         </Container>
@@ -107,7 +107,7 @@ const CustomSelect = ({ option, selectedlist, setselectedList }: Props) => {
                             .map((item) => {
                                 return (
                                     <OptionItemBox
-                                        onClick={() => handleOnClick(item?.id, item?.name)}
+                                        onClick={() => handleOnClick(item.id, item.name)}
                                         key={item.id}
                                     >
                                         <EmptyRadio></EmptyRadio>{" "}
