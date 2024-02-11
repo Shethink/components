@@ -1,15 +1,13 @@
 import React, { useState } from "react";
-import { Container, Icon, TextField } from "@mui/material";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import { Container, } from "@mui/material";
 import {
     BoxContainer,
     OptionListBox,
     DropDownOption,
     EmptyRadio,
-    StyledCheckCircleIcon,
+    StyledCheckCircle,
     OptionItemBox,
-    StyledKeyboardArrowUpIcon,
+    StyledKeyboardArrowUp,
     Text,
     LabelBox,
     SearchIconBox,
@@ -17,7 +15,6 @@ import {
 import Typography from "../typography";
 import Divider from "../divider";
 import { Chip } from "@mui/material";
-import SearchIcon from "src/icon/search-icon";
 
 interface Item {
     id: number;
@@ -41,13 +38,12 @@ const CustomSelect = ({ option, selectedlist, setselectedList }: Props) => {
         const array = selectedlist?.filter((item) => item.id !== id);
         setselectedList(array);
     };
-
     const handleChips = () => {
         if (isOpen) {
             return (
                 <LabelBox>
                     <SearchIconBox height={24} width={20} />{" "}
-                    <Text variant="h5">Services</Text>
+                    <Text variant="h6">Services</Text>
                 </LabelBox>
             );
         } else {
@@ -55,7 +51,7 @@ const CustomSelect = ({ option, selectedlist, setselectedList }: Props) => {
                 return (
                     <LabelBox>
                         <SearchIconBox height={24} width={20} />{" "}
-                        <Text variant="h5">Services</Text>
+                        <Text variant="h6">Services</Text>
                     </LabelBox>
                 );
             } else
@@ -73,12 +69,12 @@ const CustomSelect = ({ option, selectedlist, setselectedList }: Props) => {
 
     return (
         <Container>
-            <Text>
+            <Text variant="h6">
                 Services
             </Text>
             <BoxContainer onClick={() => setIsOpen(!isOpen)} isOpen={isOpen}>
                 <Typography>{handleChips()}</Typography>
-                <StyledKeyboardArrowUpIcon isOpen={isOpen}></StyledKeyboardArrowUpIcon>
+                <StyledKeyboardArrowUp isOpen={isOpen}></StyledKeyboardArrowUp>
             </BoxContainer>
             {isOpen && (
                 <DropDownOption>
@@ -89,8 +85,8 @@ const CustomSelect = ({ option, selectedlist, setselectedList }: Props) => {
                                     <OptionItemBox
                                         onClick={() => handleRemoveItem(item?.id, item?.name)}
                                         key={item.id}>
-                                        <StyledCheckCircleIcon />{" "}
-                                        <Text>
+                                        <StyledCheckCircle />{" "}
+                                        <Text variant="h6">
                                             {item.name}
                                         </Text>
                                     </OptionItemBox>
@@ -115,7 +111,7 @@ const CustomSelect = ({ option, selectedlist, setselectedList }: Props) => {
                                         key={item.id}
                                     >
                                         <EmptyRadio></EmptyRadio>{" "}
-                                        <Text>
+                                        <Text variant="h6">
                                             {item.name}
                                         </Text>
                                     </OptionItemBox>

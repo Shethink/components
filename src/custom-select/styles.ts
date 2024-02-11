@@ -48,7 +48,7 @@ export const EmptyRadio = styled(Container)(() => ({
     maxWidth: "fit-Content",
 }));
 
-export const StyledCheckCircleIcon = styled(CheckCircleIcon)(() => ({
+export const StyledCheckCircle = styled(CheckCircleIcon)(() => ({
     padding: "0",
     margin: "0 5px 0 0",
     width: "22px",
@@ -67,7 +67,7 @@ export const OptionItemBox = styled(MuiContainer)(() => ({
     width: "50% !important",
 }));
 
-export const StyledKeyboardArrowUpIcon = styled(KeyboardArrowUpIcon)<{
+export const StyledKeyboardArrowUp = styled(KeyboardArrowUpIcon)<{
     isOpen: boolean;
 }>(({ isOpen }) =>
     isOpen
@@ -83,7 +83,7 @@ export const StyledKeyboardArrowUpIcon = styled(KeyboardArrowUpIcon)<{
 );
 
 export const Text = styled(Typography)(({ theme }) => ({
-    fontWeight: "500",
+    fontWeight: "400",
     color: theme.colours.black100
 }));
 
