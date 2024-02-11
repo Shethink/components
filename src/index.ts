@@ -18,6 +18,8 @@ import Modal, { modalClasses, ModalProps } from "./modal";
 import Row from "./row";
 
 import Select, { SelectProps, SelectOption } from "./select";
+import Divider from "./divider";
+import CustomSelect from "./custom-select";
 
 import SequenceList, {
   SequenceItem,
@@ -86,4 +88,6 @@ export type {
   SequencePhaseProps,
   SwitchProps,
   ThemeOptions,
+  Divider,
+  CustomSelect
 };

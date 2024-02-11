@@ -6,16 +6,15 @@ export const CheckboxContainer = styled("div")(() => ({
   alignItems: "center",
 }));
 
-export const StyledLabel = styled("label")(({ theme }) => ({
+export const StyledLabel = styled("label")<{ color: string | undefined }>(({ color, theme }) => ({
   cursor: "pointer",
   display: "flex",
-
   "&::before": {
     content: '""',
     width: "1rem",
     height: "1rem",
     borderRadius: "3px",
-    border: `2px solid ${theme.colours.primary}`,
+    border: `2px solid ${color ?? theme.colours.primary}`,
     transition: ".5s ease",
     marginRight: ".5rem",
   },
@@ -27,7 +26,7 @@ export const StyledLabel = styled("label")(({ theme }) => ({
   },
 }));
 
-export const StyledCheckbox = styled("input")(({ theme }) => ({
+export const StyledCheckbox = styled("input")<{ color: string | undefined }>(({ color, theme }) => ({
   position: "absolute",
   opacity: 0,
   cursor: "pointer",
@@ -38,7 +37,7 @@ export const StyledCheckbox = styled("input")(({ theme }) => ({
   },
 
   "&:checked + label::before": {
-    background: theme.colours.primary,
+    background: color ?? theme.colours.primary,
     content: '"\\002714"',
     display: "flex",
     justifyContent: "center",

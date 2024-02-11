@@ -8,15 +8,17 @@ export type CheckboxProps = Omit<
   label?: string;
   isChecked?: boolean;
   onChange?: (checked: boolean) => void;
+  color?: string | undefined
 };
 
-const Checkbox = ({ isChecked, onChange, label, ...props }: CheckboxProps) => {
+const Checkbox = ({ isChecked, onChange, label, color, ...props }: CheckboxProps) => {
   const handleCheck = (e: ChangeEvent<HTMLInputElement>) =>
     onChange && onChange(e.target.checked);
 
   return (
     <CheckboxContainer>
       <StyledCheckbox
+        color={color}
         type="checkbox"
         name=""
         checked={isChecked}
@@ -24,7 +26,7 @@ const Checkbox = ({ isChecked, onChange, label, ...props }: CheckboxProps) => {
         id="checkbox-primary"
         {...props}
       />
-      <StyledLabel htmlFor="checkbox-primary">{label}</StyledLabel>
+      <StyledLabel color={color} htmlFor="checkbox-primary">{label}</StyledLabel>
     </CheckboxContainer>
   );
 };
