@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { CSSProperties, useState } from "react";
 import { Container, } from "@mui/material";
 import {
     BoxContainer,
@@ -21,12 +21,17 @@ interface Item {
     name: string;
 }
 interface Props {
+    OptionTextStyle?: CSSProperties,
+    labelStyle?: CSSProperties,
+    placeholderStyle?: CSSProperties,
+    placeholder: string;
+    label: string
     option: Item[];
     selectedlist: Item[];
     setselectedList: React.Dispatch<React.SetStateAction<Item[]>>;
 }
 
-const CustomSelect = ({ option, selectedlist, setselectedList }: Props) => {
+const CustomSelect = ({ OptionTextStyle, labelStyle, placeholderStyle, placeholder, label, option, selectedlist, setselectedList }: Props) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const handleOnClick = (id: number, name: string) => {
@@ -43,7 +48,7 @@ const CustomSelect = ({ option, selectedlist, setselectedList }: Props) => {
             return (
                 <LabelBox>
                     <SearchIconBox height={24} width={20} />
-                    <Text variant="h6">Services</Text>
+                    <Text style={placeholderStyle} variant="h6">{placeholder}</Text>
                 </LabelBox>
             );
         } else {
@@ -51,7 +56,7 @@ const CustomSelect = ({ option, selectedlist, setselectedList }: Props) => {
                 return (
                     <LabelBox>
                         <SearchIconBox height={24} width={20} />
-                        <Text variant="h6">Services</Text>
+                        <Text style={placeholderStyle} variant="h6">{placeholder}</Text>
                     </LabelBox>
                 );
             } else
@@ -69,8 +74,8 @@ const CustomSelect = ({ option, selectedlist, setselectedList }: Props) => {
 
     return (
         <Container>
-            <Text variant="h6">
-                Services
+            <Text style={labelStyle} variant="h6">
+                {label}
             </Text>
             <BoxContainer onClick={() => setIsOpen(!isOpen)} isOpen={isOpen}>
                 <Typography>{handleChips()}</Typography>
@@ -86,7 +91,7 @@ const CustomSelect = ({ option, selectedlist, setselectedList }: Props) => {
                                         onClick={() => handleRemoveItem(item.id, item.name)}
                                         key={item.id}>
                                         <StyledCheckCircle />
-                                        <Text variant="h6">
+                                        <Text style={OptionTextStyle} variant="h6">
                                             {item.name}
                                         </Text>
                                     </OptionItemBox>
@@ -111,7 +116,7 @@ const CustomSelect = ({ option, selectedlist, setselectedList }: Props) => {
                                         key={item.id}
                                     >
                                         <EmptyRadio></EmptyRadio>{" "}
-                                        <Text variant="h6">
+                                        <Text style={OptionTextStyle} variant="h6">
                                             {item.name}
                                         </Text>
                                     </OptionItemBox>
