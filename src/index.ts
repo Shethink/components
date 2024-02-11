@@ -72,6 +72,7 @@ export {
   ThemeProvider,
   Typography,
   Visibility,
+  Divider,
 };
 export type {
   ButtonProps,
@@ -89,5 +90,5 @@ export type {
   SequencePhaseProps,
   SwitchProps,
   ThemeOptions,
-  Divider,
+
 };
