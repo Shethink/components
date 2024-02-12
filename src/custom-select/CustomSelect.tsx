@@ -12,11 +12,13 @@ import {
     LabelBox,
     SearchIconBox,
     MainContainer,
-    StyledCircle
+    StyledCircle,
+    EmptyContainer
 } from "./styles";
 import Typography from "../typography";
 import Divider from "../divider";
 import { Chip } from "@mui/material";
+
 
 interface Item {
     id: number;
@@ -35,7 +37,6 @@ interface Props {
 
 const CustomSelect = ({ OptionTextStyle, labelStyle, placeholderStyle, placeholder, label, option, selectedlist, setselectedList }: Props) => {
     const [isOpen, setIsOpen] = useState(false);
-
     const handleOnClick = (id: number, name: string) => {
         const array = [...selectedlist];
         array.push({ id, name });
@@ -79,11 +80,13 @@ const CustomSelect = ({ OptionTextStyle, labelStyle, placeholderStyle, placehold
             <Text style={labelStyle} variant="h6">
                 {label}
             </Text>
-            <BoxContainer onClick={() => setIsOpen(!isOpen)} isOpen={isOpen}>
-                <Typography>{handleChips()}</Typography>
-                <StyledKeyboardArrowUp isOpen={isOpen} />
+            <BoxContainer isOpen={isOpen}>
+                <EmptyContainer onClick={() => setIsOpen(!isOpen)}>
+                    <Typography>{handleChips()}</Typography>
+                    <StyledKeyboardArrowUp isOpen={isOpen} />
+                </EmptyContainer>
                 {isOpen && (
-                    <DropDownOption>
+                    <DropDownOption >
                         {selectedlist.length > 0 && (
                             <OptionListBox>
                                 {selectedlist.map((item: { id: number; name: string }) => {
@@ -116,7 +119,7 @@ const CustomSelect = ({ OptionTextStyle, labelStyle, placeholderStyle, placehold
                                             onClick={() => handleOnClick(item.id, item.name)}
                                             key={item.id}
                                         >
-                                            <StyledCircle height={20} width={20} />
+                                            <StyledCircle />
                                             <Text style={OptionTextStyle} variant="h6">
                                                 {item.name}
                                             </Text>
