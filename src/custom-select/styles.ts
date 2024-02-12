@@ -5,9 +5,11 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import Typography from "../typography";
 import SearchIcon from "../icon/search-icon";
+import CircleIcon from "../icon/circle-icon";
 
 export const BoxContainer = styled(Container)<{ isOpen: boolean }>(
     ({ isOpen, theme }) => ({
+        position: "relative",
         border: `1px solid #D8D7E1`,
         borderRadius: isOpen ? "6px 6px 0px 0px" : "6px",
         padding: "5px",
@@ -17,7 +19,13 @@ export const BoxContainer = styled(Container)<{ isOpen: boolean }>(
     })
 );
 
-export const OptionListBox = styled(Container)(() => ({
+export const MainContainer = styled(MuiContainer)(() => ({
+    padding: "0 !important",
+}));
+
+
+export const OptionListBox = styled(MuiContainer)(({ theme }) => ({
+
     padding: "20px",
     margin: "0",
     display: "flex",
@@ -28,14 +36,22 @@ export const OptionListBox = styled(Container)(() => ({
     cursor: "pointer",
     maxHeight: "168px",
     overflow: "scroll",
+    maxWidth: '100%'
+
 }));
 
-export const DropDownOption = styled(Container)(() => ({
+export const DropDownOption = styled(MuiContainer)(() => ({
+    position: 'absolute',
+    left: 0,
+    top: 38,
+    backgroundColor: "#fff",
     padding: "0 !important",
     margin: "0",
     border: "1px solid #D7D8E1",
     borderRadius: "0px 0px 6px 6px",
     borderTop: 0,
+    zIndex: 9999999,
+    maxWidth: '101%'
 }));
 
 export const EmptyRadio = styled(Container)(() => ({
@@ -84,7 +100,8 @@ export const StyledKeyboardArrowUp = styled(KeyboardArrowUpIcon)<{
 
 export const Text = styled(Typography)(({ theme }) => ({
     fontWeight: "400",
-    color: theme.colours.black100
+    color: theme.colours.black100,
+
 }));
 
 export const LabelBox = styled(MuiContainer)(() => ({
@@ -101,3 +118,14 @@ export const SearchIconBox = styled(SearchIcon)(() => ({
     justifyContent: "center",
     alignItems: "center",
 }));
+
+
+export const StyledCircle = styled(CircleIcon)(() => ({
+    padding: "0 !important",
+    minWidth: '20px',
+    height: '20px',
+    marginRight: "10px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+}))

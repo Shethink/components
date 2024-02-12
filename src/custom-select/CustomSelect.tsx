@@ -11,6 +11,8 @@ import {
     Text,
     LabelBox,
     SearchIconBox,
+    MainContainer,
+    StyledCircle
 } from "./styles";
 import Typography from "../typography";
 import Divider from "../divider";
@@ -73,59 +75,60 @@ const CustomSelect = ({ OptionTextStyle, labelStyle, placeholderStyle, placehold
     };
 
     return (
-        <Container>
+        <MainContainer>
             <Text style={labelStyle} variant="h6">
                 {label}
             </Text>
             <BoxContainer onClick={() => setIsOpen(!isOpen)} isOpen={isOpen}>
                 <Typography>{handleChips()}</Typography>
                 <StyledKeyboardArrowUp isOpen={isOpen} />
-            </BoxContainer>
-            {isOpen && (
-                <DropDownOption>
-                    {selectedlist.length > 0 && (
+                {isOpen && (
+                    <DropDownOption>
+                        {selectedlist.length > 0 && (
+                            <OptionListBox>
+                                {selectedlist.map((item: { id: number; name: string }) => {
+                                    return (
+                                        <OptionItemBox
+                                            onClick={() => handleRemoveItem(item.id, item.name)}
+                                            key={item.id}>
+                                            <StyledCheckCircle />
+                                            <Text style={OptionTextStyle} variant="h6">
+                                                {item.name}
+                                            </Text>
+                                        </OptionItemBox>
+                                    );
+                                })}
+                            </OptionListBox>
+                        )}
+                        {selectedlist.length > 0 && (
+                            <Container style={{ width: "99%" }}>
+                                <Divider color="#D8D7E1" height="100%" width="100%" />
+                            </Container>
+                        )}
                         <OptionListBox>
-                            {selectedlist.map((item: { id: number; name: string }) => {
-                                return (
-                                    <OptionItemBox
-                                        onClick={() => handleRemoveItem(item.id, item.name)}
-                                        key={item.id}>
-                                        <StyledCheckCircle />
-                                        <Text style={OptionTextStyle} variant="h6">
-                                            {item.name}
-                                        </Text>
-                                    </OptionItemBox>
-                                );
-                            })}
+                            {option
+                                .filter(
+                                    (option) => !selectedlist.some((item) => item.id === option.id)
+                                )
+                                .map((item) => {
+                                    return (
+                                        <OptionItemBox
+                                            onClick={() => handleOnClick(item.id, item.name)}
+                                            key={item.id}
+                                        >
+                                            <StyledCircle height={20} width={20} />
+                                            <Text style={OptionTextStyle} variant="h6">
+                                                {item.name}
+                                            </Text>
+                                        </OptionItemBox>
+                                    );
+                                })}
                         </OptionListBox>
-                    )}
-                    {selectedlist.length > 0 && (
-                        <Container style={{ width: "99%" }}>
-                            <Divider color="#D8D7E1" height="100%" width="100%" />
-                        </Container>
-                    )}
-                    <OptionListBox>
-                        {option
-                            .filter(
-                                (option) => !selectedlist.some((item) => item.id === option.id)
-                            )
-                            .map((item) => {
-                                return (
-                                    <OptionItemBox
-                                        onClick={() => handleOnClick(item.id, item.name)}
-                                        key={item.id}
-                                    >
-                                        <EmptyRadio></EmptyRadio>{" "}
-                                        <Text style={OptionTextStyle} variant="h6">
-                                            {item.name}
-                                        </Text>
-                                    </OptionItemBox>
-                                );
-                            })}
-                    </OptionListBox>
-                </DropDownOption>
-            )}
-        </Container>
+                    </DropDownOption>
+                )}
+            </BoxContainer>
+
+        </MainContainer>
     );
 };
 
