@@ -16,6 +16,33 @@ export const StyledLabel = styled(Typography)(({ theme }) => ({
   color: theme.colours.black,
 }));
 
+export const TextArea = styled("textarea")<{ isResizable?: boolean }>(
+  ({ theme, isResizable }) => ({
+    width: "100%",
+    borderRadius: "6px",
+    padding: "1rem",
+    resize: isResizable ? "both" : "none",
+
+    "&:focus": {
+      outline: "none",
+    },
+
+    "&::placeholder": {
+      color: theme.colours.white800,
+    },
+
+    [`&.${inputClasses.outlined}`]: {
+      border: `1px solid ${theme.colours.white500}`,
+      background: theme.colours.white,
+    },
+
+    [`&.${inputClasses.contained}`]: {
+      border: `1px solid ${theme.colours.white500}`,
+      background: theme.colours.white500,
+    },
+  })
+);
+
 export const Input = styled("input")(({ theme }) => ({
   height: "40px",
   width: "100%",

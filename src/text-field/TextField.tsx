@@ -3,6 +3,7 @@ import {
   IconContainer,
   Input,
   StyledLabel,
+  TextArea,
   WordCountContainer,
   inputClasses,
 } from "./styles";
@@ -21,6 +22,8 @@ export type InputProps = Omit<ComponentProps<typeof Input>, "onChange"> & {
   EndIconAdornment?: React.ReactNode;
   isExtraPadded?: boolean;
   isLargeVariant?: boolean;
+  isMultiline?: boolean;
+  isResizable?: boolean;
 };
 
 const TextField: React.FC<InputProps> = ({
@@ -34,6 +37,8 @@ const TextField: React.FC<InputProps> = ({
   EndIconAdornment,
   isExtraPadded,
   isLargeVariant,
+  isMultiline,
+  isResizable,
   ...props
 }) => {
   const handleChange = (
@@ -53,20 +58,37 @@ const TextField: React.FC<InputProps> = ({
         </Row>
       )}
       <div style={{ position: "relative" }}>
-        <Input
-          {...props}
-          maxLength={maxLength ?? Infinity}
-          value={value}
-          placeholder={placeholder ?? "Placeholder"}
-          className={classNames(
-            variant === "outlined" && inputClasses.outlined,
-            variant === "contained" && inputClasses.contained,
-            isExtraPadded && inputClasses.extraPadded,
-            isLargeVariant && inputClasses.large
-          )}
-          onChange={handleChange}
-        />
-        {EndIconAdornment && <IconContainer>{EndIconAdornment}</IconContainer>}
+        {!isMultiline ? (
+          <>
+            <Input
+              {...props}
+              maxLength={maxLength ?? Infinity}
+              value={value}
+              placeholder={placeholder ?? "Placeholder"}
+              className={classNames(
+                variant === "outlined" && inputClasses.outlined,
+                variant === "contained" && inputClasses.contained,
+                isExtraPadded && inputClasses.extraPadded,
+                isLargeVariant && inputClasses.large
+              )}
+              onChange={handleChange}
+            />
+            {EndIconAdornment && (
+              <IconContainer>{EndIconAdornment}</IconContainer>
+            )}
+          </>
+        ) : (
+          <TextArea
+            value={value}
+            onChange={handleChange}
+            className={classNames(
+              variant === "outlined" && inputClasses.outlined,
+              variant === "contained" && inputClasses.contained
+            )}
+            placeholder={placeholder ?? "Placeholder"}
+            isResizable={isResizable}
+          />
+        )}
       </div>
     </>
   );
