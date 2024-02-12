@@ -120,12 +120,21 @@ export const SearchIconBox = styled(SearchIcon)(() => ({
 }));
 
 
-export const StyledCircle = styled(CircleIcon)(() => ({
+export const StyledCircle = styled(MuiContainer)(() => ({
+    width: "20px",
+    height: "20px",
+    minWidth: "20px",
+    minHeight: "20px",
+    border: '1px solid #d8d7e1',
+    borderRadius: '50%',
     padding: "0 !important",
-    minWidth: '20px',
-    height: '20px',
-    marginRight: "10px",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
+    margin: "0 10px 0 0!important"
+}))
+
+export const EmptyContainer = styled(MuiContainer)(() => ({
+    display: 'flex',
+    justifyContent: "space-between",
+    alignItems: 'center',
+    width: "100%",
+    padding: "0 !important"
 }))
