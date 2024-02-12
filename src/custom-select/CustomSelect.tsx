@@ -76,7 +76,7 @@ const CustomSelect = ({ OptionTextStyle, labelStyle, placeholderStyle, placehold
     };
 
     return (
-        <MainContainer>
+        <MainContainer >
             <Text style={labelStyle} variant="h6">
                 {label}
             </Text>

@@ -43,7 +43,7 @@ export const OptionListBox = styled(MuiContainer)(({ theme }) => ({
 export const DropDownOption = styled(MuiContainer)(() => ({
     position: 'absolute',
     left: 0,
-    top: 38,
+    top: "101%",
     backgroundColor: "#fff",
     padding: "0 !important",
     margin: "0",
