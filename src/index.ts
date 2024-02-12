@@ -1,4 +1,8 @@
 import Button, { buttonClasses, ButtonProps, IconButtonProps } from "./button";
+import ButtonRadioGroup, {
+  ButtonRadioGroupProps,
+  Option,
+} from "./button-radio-group";
 
 import Checkbox, { CheckboxProps } from "./checkbox";
 
@@ -47,6 +51,7 @@ export {
   ArrowBack,
   Button,
   buttonClasses,
+  ButtonRadioGroup,
   Checkbox,
   Close,
   Container,
@@ -76,6 +81,7 @@ export {
 };
 export type {
   ButtonProps,
+  ButtonRadioGroupProps,
   CheckboxProps,
   ContainerProps,
   CreateSequenceProps,
@@ -83,6 +89,7 @@ export type {
   IconButtonProps,
   InputProps,
   ModalProps,
+  Option,
   SelectOption,
   SelectProps,
   SequenceListItem,
@@ -90,5 +97,4 @@ export type {
   SequencePhaseProps,
   SwitchProps,
   ThemeOptions,
-
 };
