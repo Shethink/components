@@ -24,7 +24,7 @@ export type InputProps = Omit<ComponentProps<typeof Input>, "onChange"> & {
   isLargeVariant?: boolean;
   isMultiline?: boolean;
   isResizable?: boolean;
-  isNumericInput: boolean;
+  isNumericInput?: boolean;
 };
 
 const TextField: React.FC<InputProps> = ({
@@ -46,11 +46,15 @@ const TextField: React.FC<InputProps> = ({
   const handleChange = (
     event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
   ) => {
-    if (isNumericInput && event.target.value && !event.target.value.match('^[0-9]+$')) {
-      return
+    if (
+      isNumericInput &&
+      event.target.value &&
+      !event.target.value.match("^[0-9]+$")
+    ) {
+      return;
     }
     onChange && onChange(event.target.value);
-  }
+  };
 
   return (
     <>
