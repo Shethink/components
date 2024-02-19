@@ -96,3 +96,18 @@ const [value, setValue] = React.useState("");
   />
 </>;
 ```
+### Number only input
+
+```jsx
+import React from "react";
+import { Close } from "../icon";
+const [value, setValue] = React.useState("");
+<>
+  <TextField
+    variant="outlined"
+    onChange={(e) => setValue(e)}
+    value={value}
+    isNumericInput
+  />
+</>;
+```
