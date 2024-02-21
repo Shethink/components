@@ -1,5 +1,6 @@
 import { alpha, Button as MaterialButton, IconButton } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import { borderRadius, color, padding } from "@mui/system";
 
 const PREFIX = "Button";
 
@@ -19,6 +20,7 @@ export const buttonClasses = {
   medium: `${PREFIX}-medium`,
   large: `${PREFIX}-large`,
   "extra-large": `${PREFIX}-extra-large`,
+  black: `${PREFIX}-black`
 };
 
 export const StyledButton = styled(MaterialButton)(
@@ -33,6 +35,12 @@ export const StyledButton = styled(MaterialButton)(
       "&:hover": {
         backgroundColor: alpha(colours.black, 0.05),
       },
+    },
+    [`&.${buttonClasses.black}`]: {
+      backgroundColor: "#192023",
+      borderRadius: 999,
+      padding: '20px',
+      color: colours.white
     },
     [`&.${buttonClasses.contained}`]: {
       "&.Mui-disabled": {

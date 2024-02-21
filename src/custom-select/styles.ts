@@ -7,12 +7,19 @@ import Typography from "../typography";
 import SearchIcon from "../icon/search-icon";
 import CircleIcon from "../icon/circle-icon";
 
+const PREFIX = "CustomSelect";
+
+export const customSelectClasses = {
+    outlined: `${PREFIX}-outlined`,
+    contained: `${PREFIX}-contained`,
+    extraPadded: `${PREFIX}-extra-padded`,
+    large: `${PREFIX}-large`,
+};
 export const BoxContainer = styled(Container)<{ isOpen: boolean }>(
     ({ isOpen, theme }) => ({
         position: "relative",
         border: `1px solid #D8D7E1`,
         borderRadius: isOpen ? "6px 6px 0px 0px" : "6px",
-        padding: "5px",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
@@ -136,5 +143,13 @@ export const EmptyContainer = styled(MuiContainer)(() => ({
     justifyContent: "space-between",
     alignItems: 'center',
     width: "100%",
-    padding: "0 !important"
+    padding: "0 !important",
+
+    [`&.${customSelectClasses.extraPadded}`]: {
+        paddingLeft: "18px",
+    },
+
+    [`&.${customSelectClasses.large}`]: {
+        height: "50px",
+    },
 }))

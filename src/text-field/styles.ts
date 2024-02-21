@@ -10,10 +10,21 @@ export const inputClasses = {
   large: `${PREFIX}-large`,
 };
 
+export const labelClasses = {
+  normal: `${PREFIX}-normal`,
+  bold: `${PREFIX}-bold`,
+};
 export const StyledLabel = styled(Typography)(({ theme }) => ({
-  fontSize: "14px",
-  fontWeight: "500",
-  color: theme.colours.black,
+  [`&.${labelClasses.bold}`]: {
+    fontSize: "14px",
+    fontWeight: "500",
+    color: theme.colours.black,
+  },
+  [`&.${labelClasses.normal}`]: {
+    fontSize: "14px",
+    color: theme.colours.black,
+  },
+
 }));
 
 export const TextArea = styled("textarea")<{ isResizable?: boolean }>(

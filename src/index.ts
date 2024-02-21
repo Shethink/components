@@ -13,6 +13,10 @@ import CreateSequence, {
   SequenceOptions,
 } from "./create-sequence";
 
+import CompleteProfile, {
+  CompleteProfileProps
+} from "./complete-profile";
+
 import GoogleAuth from "./google-auth/GoogleAuth";
 
 import { Close, Star, AutoAwesome, ArrowBack, Visibility } from "./icon";
@@ -45,6 +49,7 @@ import ThemeProvider, {
 } from "./theme-provider";
 
 import Typography from "./typography";
+import FilePicker, { FilePickerProps } from "./file-picker";
 
 export {
   AutoAwesome,
@@ -78,6 +83,8 @@ export {
   Typography,
   Visibility,
   Divider,
+  CompleteProfile,
+  FilePicker
 };
 export type {
   ButtonProps,
@@ -97,4 +104,6 @@ export type {
   SequencePhaseProps,
   SwitchProps,
   ThemeOptions,
+  CompleteProfileProps,
+  FilePickerProps
 };

@@ -13,11 +13,13 @@ import {
     SearchIconBox,
     MainContainer,
     StyledCircle,
-    EmptyContainer
+    EmptyContainer,
+    customSelectClasses
 } from "./styles";
 import Typography from "../typography";
 import Divider from "../divider";
 import { Chip } from "@mui/material";
+import classNames from "classnames";
 
 
 interface Item {
@@ -33,9 +35,12 @@ interface Props {
     option: Item[];
     selectedlist: Item[];
     setselectedList: React.Dispatch<React.SetStateAction<Item[]>>;
+    showSearchIcon?: boolean
+    isLargeVariant?: boolean,
+    isExtraPadded?: boolean
 }
 
-const CustomSelect = ({ OptionTextStyle, labelStyle, placeholderStyle, placeholder, label, option, selectedlist, setselectedList }: Props) => {
+const CustomSelect = ({ OptionTextStyle, labelStyle, placeholderStyle, placeholder, label, option, selectedlist, setselectedList, showSearchIcon, isLargeVariant, isExtraPadded }: Props) => {
     const [isOpen, setIsOpen] = useState(false);
     const handleOnClick = (id: number, name: string) => {
         const array = [...selectedlist];
@@ -50,7 +55,7 @@ const CustomSelect = ({ OptionTextStyle, labelStyle, placeholderStyle, placehold
         if (isOpen) {
             return (
                 <LabelBox>
-                    <SearchIconBox height={24} width={20} />
+                    {showSearchIcon ? <SearchIconBox height={24} width={20} /> : <></>}
                     <Text style={placeholderStyle} variant="h6">{placeholder}</Text>
                 </LabelBox>
             );
@@ -58,7 +63,7 @@ const CustomSelect = ({ OptionTextStyle, labelStyle, placeholderStyle, placehold
             if (selectedlist.length == 0) {
                 return (
                     <LabelBox>
-                        <SearchIconBox height={24} width={20} />
+                        {showSearchIcon ? <SearchIconBox height={24} width={20} /> : <></>}
                         <Text style={placeholderStyle} variant="h6">{placeholder}</Text>
                     </LabelBox>
                 );
@@ -81,7 +86,10 @@ const CustomSelect = ({ OptionTextStyle, labelStyle, placeholderStyle, placehold
                 {label}
             </Text>
             <BoxContainer isOpen={isOpen}>
-                <EmptyContainer onClick={() => setIsOpen(!isOpen)}>
+                <EmptyContainer onClick={() => setIsOpen(!isOpen)} className={classNames(
+                    isExtraPadded && customSelectClasses.extraPadded,
+                    isLargeVariant && customSelectClasses.large
+                )}>
                     <Typography>{handleChips()}</Typography>
                     <StyledKeyboardArrowUp isOpen={isOpen} />
                 </EmptyContainer>

@@ -6,6 +6,7 @@ import {
   TextArea,
   WordCountContainer,
   inputClasses,
+  labelClasses,
 } from "./styles";
 import classNames from "classnames";
 import Row from "../row";
@@ -25,6 +26,7 @@ export type InputProps = Omit<ComponentProps<typeof Input>, "onChange"> & {
   isMultiline?: boolean;
   isResizable?: boolean;
   isNumericInput?: boolean;
+  labelType?: 'normal' | 'bold'
 };
 
 const TextField: React.FC<InputProps> = ({
@@ -41,6 +43,7 @@ const TextField: React.FC<InputProps> = ({
   isMultiline,
   isResizable,
   isNumericInput,
+  labelType,
   ...props
 }) => {
   const handleChange = (
@@ -60,7 +63,7 @@ const TextField: React.FC<InputProps> = ({
     <>
       {label && (
         <Row style={{ marginBottom: "10px" }}>
-          <StyledLabel>{label}</StyledLabel>
+          <StyledLabel className={labelType == 'bold' ? classNames(labelClasses.bold) : classNames(labelClasses.normal)}>{label}</StyledLabel>
           {showWordCount && (
             <WordCountContainer>
               {`${value?.toString().length}/${maxLength}`}

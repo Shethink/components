@@ -15,6 +15,8 @@ export type IconButtonProps = Omit<MuiIconButtonProps, "action"> & {
   variant?: Variant;
   size?: "extra-small" | "small" | 42 | "medium" | "large" | "extra-large";
   component?: undefined;
+  isBlackButton?: boolean
+
 };
 
 export type ButtonProps = Omit<MuiButtonProps, "action"> & {
@@ -23,6 +25,7 @@ export type ButtonProps = Omit<MuiButtonProps, "action"> & {
   hasDarkBackground?: boolean;
   variant?: Variant;
   component?: React.ElementType;
+  isBlackButton?: boolean
 };
 
 const Button = ({
@@ -35,6 +38,7 @@ const Button = ({
   size,
   disabled,
   component = "button",
+  isBlackButton,
   ...rest
 }: ButtonProps | IconButtonProps) => {
   const buttonVariant = variant === "opaqueOutlined" ? "outlined" : variant;
@@ -67,7 +71,8 @@ const Button = ({
       {...(rest as ButtonProps)}
       classes={{
         ...classes,
-        root: classnames(buttonClasses.root, classes?.root),
+        root: classnames(buttonClasses.root, classes?.root, isBlackButton && [buttonClasses.black]
+        ),
         text: classnames(
           buttonClasses.text,
           classes?.text,
@@ -83,9 +88,9 @@ const Button = ({
           classes?.outlined,
           variant === "opaqueOutlined" && [buttonClasses.opaqueOutlined],
           hasDarkBackground &&
-            variant !== "opaqueOutlined" && [buttonClasses.outlinedDarkBg],
+          variant !== "opaqueOutlined" && [buttonClasses.outlinedDarkBg],
           variant === "opaqueOutlined" &&
-            hasDarkBackground && [buttonClasses.opaqueOutlinedDarkBg]
+          hasDarkBackground && [buttonClasses.opaqueOutlinedDarkBg],
         ),
       }}
     >
