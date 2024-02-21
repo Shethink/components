@@ -5,7 +5,7 @@ import {
 import classnames from "classnames";
 import React, { ReactNode, useState } from "react";
 import { StyledLabel, StyledBox, completeProfileClasses, StyledCheckCircle, StyledCheckCross } from "./styles";
-import Container from "src/container";
+import Container from "../container";
 import Row from "../row";
 import TextField from "../text-field";
 import classNames from "classnames";
@@ -14,19 +14,37 @@ import CustomSelect from "src/custom-select";
 import FilePicker from "src/file-picker";
 import Button from "src/button";
 
-
+interface Item {
+  id: number;
+  name: string;
+}
+type ProfileData = {
+  name: string
+  agencyName: string
+  website: string
+  linkedinURL: string
+  location: string
+  email: string
+  phone: string
+  selectedIndustries: Item[]
+  portfolio: File[] | []
+  ip: string
+}
 export type CompleteProfileProps = {
   children: ReactNode
   pageTitle: string
-  profileType: 'agency' | 'marketer',
-  submitButtonLabel: string
+  profileType?: 'agency' | 'marketer'
+  submitButtonLabel?: string
+  onSubmit: (data: ProfileData) => void
 };
 
 const CompleteProfile = ({
   children,
   pageTitle,
   profileType,
-  submitButtonLabel
+  submitButtonLabel,
+  onSubmit
+
 }: CompleteProfileProps) => {
   const [name, setName] = useState('')
   const [agencyName, setAgencyName] = useState('')
@@ -288,7 +306,24 @@ const CompleteProfile = ({
       </StyledBox>
     </Row>
     <StyledBox className={classNames(completeProfileClasses["text-field-container"])}>
-      <Button isBlackButton component="span" style={{ marginTop: '20px', paddingLeft: '30px', paddingRight: '30px' }}>
+      <Button isBlackButton component="span" style={{ marginTop: '20px', paddingLeft: '30px', paddingRight: '30px' }}
+        onClick={() => {
+          onSubmit(
+            {
+              name,
+              agencyName,
+              website,
+              linkedinURL,
+              location,
+              email,
+              phone,
+              selectedIndustries,
+              portfolio: pickedFiles,
+              ip
+            }
+          )
+
+        }}>
         {submitButtonLabel}
       </Button>
 
