@@ -2,7 +2,7 @@ import { styled } from "@mui/material/styles";
 import Typography from "../typography";
 import { Box } from "@mui/material";
 import { CancelIcon, CheckCircleIcon } from "src/icon";
-import { padding, width } from "@mui/system";
+import { margin, padding, width } from "@mui/system";
 
 const PREFIX = "CompleteProfile";
 
@@ -23,6 +23,7 @@ export const completeProfileClasses = {
   large: `${PREFIX}-large`,
   "extra-large": `${PREFIX}-extra-large`,
   "text-field-container": `${PREFIX}-text-field-container`,
+  chips: `${PREFIX}-chips`
 
 };
 
@@ -49,6 +50,9 @@ export const StyledBox = styled(Box)(({ theme }) => ({
     [theme.breakpoints.down("sm")]: {
       width: '100%'
     },
+  },
+  [`&.${completeProfileClasses.chips}`]: {
+    margin: '5px'
   },
 }));
 export const StyledCheckCircle = styled(CheckCircleIcon)(() => ({

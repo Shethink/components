@@ -4,7 +4,7 @@ import {
 } from "@mui/material";
 import classnames from "classnames";
 import React, { ReactNode } from "react";
-import Button from "src/button";
+import Button from "../button";
 
 
 export type FilePickerProps = {

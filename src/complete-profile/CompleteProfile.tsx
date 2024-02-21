@@ -10,9 +10,9 @@ import Row from "../row";
 import TextField from "../text-field";
 import classNames from "classnames";
 import { CancelIcon, CheckCircleIcon } from "src/icon";
-import CustomSelect from "src/custom-select";
-import FilePicker from "src/file-picker";
-import Button from "src/button";
+import CustomSelect from "../custom-select";
+import FilePicker from "../file-picker";
+import Button from "../button";
 
 interface Item {
   id: number;
