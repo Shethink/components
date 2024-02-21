@@ -31,11 +31,17 @@
       "checkbox": [
         "./dist/checkbox/index.d.ts"
       ],
+      "complete-profile": [
+        "./dist/complete-profile/index.d.ts"
+      ],
       "container": [
         "./dist/container/index.d.ts"
       ],
       "create-sequence": [
         "./dist/create-sequence/index.d.ts"
+      ],
+      "file-picker": [
+        "./dist/file-picker/index.d.ts"
       ],
       "google-auth": [
         "./dist/google-auth/index.d.ts"
@@ -103,10 +109,20 @@
       "import": "./dist/esm/container/index.js",
       "types": "./dist/container/index.d.ts"
     },
+    "./complete-profile": {
+      "require": "./dist/complete-profile/index.js",
+      "import": "./dist/esm/complete-profile/index.js",
+      "types": "./dist/complete-profile/index.d.ts"
+    },
     "./create-sequence": {
       "require": "./dist/create-sequence/index.js",
       "import": "./dist/esm/create-sequence/index.js",
       "types": "./dist/create-sequence/index.d.ts"
+    },
+    "./file-picker": {
+      "require": "./dist/file-picker/index.js",
+      "import": "./dist/esm/file-picker/index.js",
+      "types": "./dist/file-picker/index.d.ts"
     },
     "./google-auth": {
       "require": "./dist/google-auth/index.js",

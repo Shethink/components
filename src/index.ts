@@ -13,9 +13,9 @@ import CreateSequence, {
   SequenceOptions,
 } from "./create-sequence";
 
-import CompleteProfile, {
-  CompleteProfileProps
-} from "./complete-profile";
+import CompleteProfile, { CompleteProfileProps } from "./complete-profile";
+
+import FilePicker, { FilePickerProps } from "./file-picker";
 
 import GoogleAuth from "./google-auth/GoogleAuth";
 
@@ -49,7 +49,6 @@ import ThemeProvider, {
 } from "./theme-provider";
 
 import Typography from "./typography";
-import FilePicker, { FilePickerProps } from "./file-picker";
 
 export {
   AutoAwesome,
@@ -84,15 +83,17 @@ export {
   Visibility,
   Divider,
   CompleteProfile,
-  FilePicker
+  FilePicker,
 };
+
 export type {
   ButtonProps,
   ButtonRadioGroupProps,
   CheckboxProps,
+  CompleteProfileProps,
   ContainerProps,
   CreateSequenceProps,
-  SequenceOptions,
+  FilePickerProps,
   IconButtonProps,
   InputProps,
   ModalProps,
@@ -102,8 +103,7 @@ export type {
   SequenceListItem,
   SequenceListProps,
   SequencePhaseProps,
+  SequenceOptions,
   SwitchProps,
   ThemeOptions,
-  CompleteProfileProps,
-  FilePickerProps
 };
