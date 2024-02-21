@@ -1,7 +1,7 @@
 import { styled } from "@mui/material/styles";
 import Typography from "../typography";
 import { Box } from "@mui/material";
-import { CancelIcon, CheckCircleIcon } from "src/icon";
+import { CancelIcon, CheckCircleIcon } from "../icon";
 import { margin, padding, width } from "@mui/system";
 
 const PREFIX = "CompleteProfile";

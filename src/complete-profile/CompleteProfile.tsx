@@ -9,7 +9,7 @@ import Container from "../container";
 import Row from "../row";
 import TextField from "../text-field";
 import classNames from "classnames";
-import { CancelIcon, CheckCircleIcon } from "src/icon";
+import { CancelIcon, CheckCircleIcon } from "../icon";
 import CustomSelect from "../custom-select";
 import FilePicker from "../file-picker";
 import Button from "../button";
