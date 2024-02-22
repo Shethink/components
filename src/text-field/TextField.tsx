@@ -101,6 +101,8 @@ const TextField: React.FC<InputProps> = ({
             )}
             placeholder={placeholder ?? "Placeholder"}
             isResizable={isResizable}
+            maxLength={maxLength ?? Infinity}
+
           />
         )}
       </div>
