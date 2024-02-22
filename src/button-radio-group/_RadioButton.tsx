@@ -10,7 +10,7 @@ export type Props = RadioProps & {
   option: string;
   className?: string;
   disabled?: boolean;
-  sx: SxProps<Theme> | undefined
+  sx?: SxProps<Theme> | undefined
 
 };
 

@@ -17,7 +17,7 @@ type ButtonContainerProps = Option & {
   setSelected: React.Dispatch<React.SetStateAction<string | undefined>>;
   onChange?: (value: string) => void;
   textFieldComponent?: React.ElementType;
-  sx: SxProps<Theme> | undefined
+  sx?: SxProps<Theme> | undefined
 
 };
 
@@ -38,7 +38,7 @@ export type ButtonRadioGroupProps = {
   disabled?: boolean;
   textFieldComponent?: React.ElementType;
   titleVariant: "default" | "inherit" | Variant | "basic-bold" | undefined
-  sx: SxProps<Theme> | undefined
+  sx?: SxProps<Theme> | undefined
 
 };
 
