@@ -22,7 +22,7 @@ export const RadioButton = ({
   ...props
 }: Props) => {
   return (
-    <Root className={className} data-testid="radio-button">
+    <Root className={className} data-testid="radio-button" sx={sx}>
       <FormControlLabel
         value={option}
         label={option}

@@ -37,7 +37,7 @@ export type ButtonRadioGroupProps = {
   onChange?: (value: string) => void;
   disabled?: boolean;
   textFieldComponent?: React.ElementType;
-  titleVariant: "default" | "inherit" | Variant | "basic-bold" | undefined
+  titleVariant?: "default" | "inherit" | Variant | "basic-bold" | undefined
   sx?: SxProps<Theme> | undefined
 
 };
