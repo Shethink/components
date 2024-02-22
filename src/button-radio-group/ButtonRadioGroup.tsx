@@ -17,7 +17,7 @@ type ButtonContainerProps = Option & {
   setSelected: React.Dispatch<React.SetStateAction<string | undefined>>;
   onChange?: (value: string) => void;
   textFieldComponent?: React.ElementType;
-  sx?: SxProps<Theme> | undefined
+  sx?: SxProps<Theme>
 
 };
 
