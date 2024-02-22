@@ -1,6 +1,8 @@
 import React, { useCallback, useState } from "react";
 import RadioButton from "./_RadioButton";
 import { Container, StyledTextField, Title } from "./styles/RadioGroupStyles";
+import { Variant } from "@mui/material/styles/createTypography";
+import { SxProps, Theme, TypographyPropsVariantOverrides } from "@mui/material";
 
 export type Option = {
   label: string;
@@ -15,6 +17,8 @@ type ButtonContainerProps = Option & {
   setSelected: React.Dispatch<React.SetStateAction<string | undefined>>;
   onChange?: (value: string) => void;
   textFieldComponent?: React.ElementType;
+  sx: SxProps<Theme> | undefined
+
 };
 
 export type TextFieldOption = {
@@ -33,6 +37,9 @@ export type ButtonRadioGroupProps = {
   onChange?: (value: string) => void;
   disabled?: boolean;
   textFieldComponent?: React.ElementType;
+  titleVariant: "default" | "inherit" | Variant | "basic-bold" | undefined
+  sx: SxProps<Theme> | undefined
+
 };
 
 const RadioGroupTextField = ({
@@ -64,6 +71,7 @@ const RadioButtonContainer = ({
   className,
   disabled,
   textFieldComponent,
+  sx,
   ...rest
 }: ButtonContainerProps) => {
   const [textFieldValue, setTextFieldValue] = useState<string | undefined>(
@@ -97,6 +105,7 @@ const RadioButtonContainer = ({
         onChange={handleRadioButtonChange}
         className={className}
         disabled={disabled}
+        sx={sx}
         {...rest}
       />
       {withTextField && (
@@ -120,12 +129,14 @@ const ButtonRadioGroup = ({
   title,
   onChange,
   textFieldComponent,
+  titleVariant,
+  sx
 }: ButtonRadioGroupProps) => {
   const [selected, setSelected] = useState(defaultValue);
 
   return (
     <Container className={className}>
-      <Title variant="h6" component="label">
+      <Title variant={titleVariant ?? "h6"} component="label">
         {title}
       </Title>
       {options.map((option) => {
@@ -138,6 +149,7 @@ const ButtonRadioGroup = ({
             disabled={disabled}
             textFieldComponent={textFieldComponent}
             {...option}
+            sx={sx}
           />
         );
       })}
