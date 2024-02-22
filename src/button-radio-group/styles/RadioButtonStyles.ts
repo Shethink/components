@@ -9,6 +9,6 @@ export const Root = styled("div")(({ theme }) => ({
     color: theme.colours.charcoal,
     marginTop: "1px",
     wordBreak: "break-word",
-    fontSize: "16px",
+    fontSize: "14px",
   },
 }));
