@@ -8,6 +8,7 @@ import ButtonRadioGroup, {
 } from "./button-radio-group";
 
 import Checkbox, { CheckboxProps } from "./checkbox";
+import Chip, { ChipProps } from "./chip";
 
 import Container, { ContainerProps, containerClasses } from "./container";
 
@@ -64,6 +65,7 @@ export {
   buttonClasses,
   ButtonRadioGroup,
   Checkbox,
+  Chip,
   Close,
   Container,
   containerClasses,
@@ -102,6 +104,7 @@ export type {
   ButtonProps,
   ButtonRadioGroupProps,
   CheckboxProps,
+  ChipProps,
   CompleteProfileProps,
   ContainerProps,
   CreateSequenceProps,
