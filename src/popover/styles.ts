@@ -20,8 +20,8 @@ export const StyledPopover = styled(Popover)(() => ({
 }));
 
 export const ModalContainer = styled("div")(({ theme: { colours } }) => ({
-  minWidth: "45vw",
-  maxWidth: "60vw",
+  minWidth: "10vw",
+  // maxWidth: "60vw",
   background: alpha(colours.white, 1),
   borderRadius: 6,
   outline: "none",
