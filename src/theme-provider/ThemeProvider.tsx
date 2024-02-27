@@ -30,6 +30,8 @@ export const colours = {
   blue800: "#34384f",
   blue900: "#292d41",
 
+  accentBlue:'#2B51EB',
+
   charcoal: "#3b3b3b",
 
   cyan100: "#ccecf9",
