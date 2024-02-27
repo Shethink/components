@@ -1,3 +1,6 @@
+import Accordion, { AccordionProps} from "./accordion";
+import AccordionDetails, { AccordionDetailsProps} from "./accordionDetails";
+import AccordionSummary, { AccordionSummaryProps} from "./accordionSummary";
 import Button, { buttonClasses, ButtonProps, IconButtonProps } from "./button";
 import ButtonRadioGroup, {
   ButtonRadioGroupProps,
@@ -52,6 +55,9 @@ import ThemeProvider, {
 import Typography from "./typography";
 
 export {
+  Accordion,
+  AccordionDetails, 
+  AccordionSummary,
   AutoAwesome,
   ArrowBack,
   Button,
@@ -90,6 +96,9 @@ export {
 };
 
 export type {
+  AccordionProps,
+  AccordionDetailsProps,
+  AccordionSummaryProps,
   ButtonProps,
   ButtonRadioGroupProps,
   CheckboxProps,
