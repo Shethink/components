@@ -23,6 +23,7 @@ import { Close, Star, AutoAwesome, ArrowBack, Visibility } from "./icon";
 
 import Modal, { modalClasses, ModalProps } from "./modal";
 
+import Popover,{PopoverProps,popoverClasses} from "./popover";
 import Row from "./row";
 
 import Select, { SelectProps, SelectOption } from "./select";
@@ -67,6 +68,8 @@ export {
   inputClasses,
   Modal,
   modalClasses,
+  Popover,
+  popoverClasses,
   poppinsRegularFont,
   poppinsMediumFont,
   poppinsBoldFont,
@@ -98,6 +101,7 @@ export type {
   InputProps,
   ModalProps,
   Option,
+  PopoverProps,
   SelectOption,
   SelectProps,
   SequenceListItem,
