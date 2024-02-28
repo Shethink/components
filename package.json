@@ -1,6 +1,6 @@
 {
   "name": "@sourcebae/components",
-  "version": "1.0.33",
+  "version": "1.0.36",
   "license": "UNLICENSED",
   "src": "src/index.ts",
   "main": "dist/index.js",
@@ -22,6 +22,15 @@
       "theme-provider": [
         "./dist/theme-provider/index.d.ts"
       ],
+      "accordion": [
+        "./dist/accordion/index.d.ts"
+      ],
+      "accordion-details": [
+        "./dist/accordion-details/index.d.ts"
+      ],
+      "accordion-summary": [
+        "./dist/accordion-summary/index.d.ts"
+      ],
       "button": [
         "./dist/button/index.d.ts"
       ],
@@ -30,6 +39,9 @@
       ],
       "checkbox": [
         "./dist/checkbox/index.d.ts"
+      ],
+      "chip": [
+        "./dist/chip/index.d.ts"
       ],
       "complete-profile": [
         "./dist/complete-profile/index.d.ts"
@@ -51,6 +63,9 @@
       ],
       "modal": [
         "./dist/modal/index.d.ts"
+      ],
+      "popover": [
+        "./dist/popover/index.d.ts"
       ],
       "row": [
         "./dist/row/index.d.ts"
@@ -92,6 +107,21 @@
       "import": "./dist/esm/theme-provider/index.js",
       "types": "./dist/theme-provider/index.d.ts"
     },
+    "./accordion": {
+      "require": "./dist/accordion/index.js",
+      "import": "./dist/esm/accordion/index.js",
+      "types": "./dist/accordion/index.d.ts"
+    },
+    "./accordion-details": {
+      "require": "./dist/accordion-details/index.js",
+      "import": "./dist/esm/accordion-details/index.js",
+      "types": "./dist/accordion-details/index.d.ts"
+    },
+    "./accordion-summary": {
+      "require": "./dist/accordion-summary/index.js",
+      "import": "./dist/esm/accordion-summary/index.js",
+      "types": "./dist/accordion-summary/index.d.ts"
+    },
     "./button": {
       "require": "./dist/button/index.js",
       "import": "./dist/esm/button/index.js",
@@ -106,6 +136,11 @@
       "require": "./dist/checkbox/index.js",
       "import": "./dist/esm/checkbox/index.js",
       "types": "./dist/checkbox/index.d.ts"
+    },
+    "./chip": {
+      "require": "./dist/chip/index.js",
+      "import": "./dist/esm/chip/index.js",
+      "types": "./dist/chip/index.d.ts"
     },
     "./container": {
       "require": "./dist/container/index.js",
@@ -141,6 +176,11 @@
       "require": "./dist/modal/index.js",
       "import": "./dist/esm/modal/index.js",
       "types": "./dist/modal/index.d.ts"
+    },
+    "./popover": {
+      "require": "./dist/popover/index.js",
+      "import": "./dist/esm/popover/index.js",
+      "types": "./dist/popover/index.d.ts"
     },
     "./row": {
       "require": "./dist/row/index.js",
