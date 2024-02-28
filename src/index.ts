@@ -27,7 +27,7 @@ import { Close, Star, AutoAwesome, ArrowBack, Visibility } from "./icon";
 
 import Modal, { modalClasses, ModalProps } from "./modal";
 
-import Popover,{PopoverProps,popoverClasses} from "./popover";
+import Popover, { PopoverProps, popoverClasses } from "./popover";
 import Row from "./row";
 
 import Select, { SelectProps, SelectOption } from "./select";
@@ -44,6 +44,8 @@ import SequenceList, {
 
 import Switch, { SwitchProps } from "./switch";
 
+import Table, { TableProps } from "./table";
+
 import TextField, { inputClasses, InputProps } from "./text-field";
 import ThemeProvider, {
   poppinsRegularFont,
@@ -57,7 +59,7 @@ import Typography from "./typography";
 
 export {
   Accordion,
-  AccordionDetails, 
+  AccordionDetails,
   AccordionSummary,
   AutoAwesome,
   ArrowBack,
@@ -88,6 +90,7 @@ export {
   SequencePhase,
   Star,
   Switch,
+  Table,
   TextField,
   ThemeProvider,
   Typography,
@@ -121,5 +124,6 @@ export type {
   SequencePhaseProps,
   SequenceOptions,
   SwitchProps,
+  TableProps,
   ThemeOptions,
 };

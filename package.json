@@ -79,6 +79,9 @@
       "switch": [
         "./dist/switch/index.d.ts"
       ],
+      "table": [
+        "./dist/table/index.d.ts"
+      ],
       "text-field": [
         "./dist/text-field/index.d.ts"
       ],
@@ -208,6 +211,11 @@
       "require": "./dist/divider/index.js",
       "import": "./dist/esm/divider/index.js",
       "types": "./dist/divider/index.d.ts"
+    },
+    "./table": {
+      "require": "./dist/table/index.js",
+      "import": "./dist/esm/table/index.js",
+      "types": "./dist/table/index.d.ts"
     },
     "./text-field": {
       "require": "./dist/text-field/index.js",
