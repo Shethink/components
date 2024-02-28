@@ -105,20 +105,28 @@ const TextField: React.FC<InputProps> = ({
 
   return (
     <>
-      {label && (
+      {(label || showWordCount) && (
         <Row style={{ marginBottom: "10px" }}>
-          <StyledLabel
-            className={
-              labelType == "bold"
-                ? classnames(labelClasses.bold)
-                : classnames(labelClasses.normal)
-            }
-          >
-            {label}
-          </StyledLabel>
+          {label && (
+            <StyledLabel
+              className={
+                labelType == "bold"
+                  ? classnames(labelClasses.bold)
+                  : classnames(labelClasses.normal)
+              }
+            >
+              {label}
+            </StyledLabel>
+          )}
           {showWordCount && (
             <WordCountContainer>
-              {`${value?.toString().length}/${inputProps?.maxLength}`}
+              {`${value?.toString().length}/${
+                maxLength
+                  ? maxLength
+                  : inputProps?.maxLength
+                  ? inputProps.maxLength
+                  : 0
+              }`}
             </WordCountContainer>
           )}
         </Row>
