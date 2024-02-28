@@ -31,12 +31,14 @@ const [value, setValue] = React.useState("");
 
 # Input
 
-Without the `isMultiline` prop, the input component is rendered which has 4 variants:
+Without the `isMultiline` prop, the input component is rendered which has 6 variants:
 
 - Outlined
 - Contained
-- With word count
+- With letter count
 - With end adornment
+- With start adornment
+- Numeric only input
 
 ### Outlined
 
@@ -58,7 +60,11 @@ const [value, setValue] = React.useState("");
 </>;
 ```
 
-### With word count
+### With letter count
+
+Keep in mind that if you want to restrict letter count, there are 2 props you
+need to send: `showWordCount` and `inputProps`. With `inputProps`, `maxLength`
+as a property is needed to restrict the letter count for the textfield.
 
 ```jsx
 import React from "react";
@@ -69,8 +75,8 @@ const [value, setValue] = React.useState("");
     onChange={(e) => setValue(e)}
     value={value}
     label={"Label"}
-    maxLength={50}
     showWordCount
+    inputProps={{ maxLength: 50 }}
   />
 </>;
 ```

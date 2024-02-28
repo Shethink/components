@@ -92,6 +92,7 @@ const TextField: React.FC<InputProps> = ({
   const handleChange = (
     event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
   ) => {
+    console.log(!event.target.value.match("^[0-9]+$"));
     if (
       isNumericInput &&
       event.target.value &&
@@ -117,7 +118,7 @@ const TextField: React.FC<InputProps> = ({
           </StyledLabel>
           {showWordCount && (
             <WordCountContainer>
-              {`${value?.toString().length}/${maxLength}`}
+              {`${value?.toString().length}/${inputProps?.maxLength}`}
             </WordCountContainer>
           )}
         </Row>
@@ -132,6 +133,7 @@ const TextField: React.FC<InputProps> = ({
               id={id}
               error={error}
               onChange={handleChange}
+              value={value}
               variant={variant === "hybrid" ? "filled" : "outlined"}
               className={classnames(
                 leftAdornment && inputClasses.leftAdornment,
@@ -165,9 +167,9 @@ const TextField: React.FC<InputProps> = ({
           </>
         ) : (
           <TextArea
-            // value={value}
+            value={value as string}
             onChange={handleChange}
-            // className={classNames(
+            // className={classnames(
             //   variant === "outlined" && inputClasses.outlined,
             //   variant === "contained" && inputClasses.contained
             // )}
