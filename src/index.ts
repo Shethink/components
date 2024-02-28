@@ -1,6 +1,6 @@
 import Accordion, { AccordionProps} from "./accordion";
-import AccordionDetails, { AccordionDetailsProps} from "./accordionDetails";
-import AccordionSummary, { AccordionSummaryProps} from "./accordionSummary";
+import AccordionDetails, { AccordionDetailsProps} from "./accordion-details";
+import AccordionSummary, { AccordionSummaryProps} from "./accordion-summary";
 import Button, { buttonClasses, ButtonProps, IconButtonProps } from "./button";
 import ButtonRadioGroup, {
   ButtonRadioGroupProps,
