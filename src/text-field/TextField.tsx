@@ -169,10 +169,7 @@ const TextField: React.FC<InputProps> = ({
           <TextArea
             value={value as string}
             onChange={handleChange}
-            // className={classnames(
-            //   variant === "outlined" && inputClasses.outlined,
-            //   variant === "contained" && inputClasses.contained
-            // )}
+            className={classnames(inputClasses.outlined)}
             placeholder={placeholder ?? "Placeholder"}
             isResizable={isResizable}
             maxLength={maxLength ?? Infinity}
