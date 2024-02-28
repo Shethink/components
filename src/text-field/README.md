@@ -10,23 +10,17 @@ The resizing of the textarea component can controlled using the `isResizable` pr
 import React from "react";
 const [value, setValue] = React.useState("");
 <>
-  <TextField
-    variant="outlined"
-    onChange={(e) => setValue(e)}
-    value={value}
-    isMultiline
-  />
+  <TextField onChange={(e) => setValue(e)} value={value} isMultiline />
 </>;
 ```
 
-### b) Resizable resizable
+### b) Resizable
 
 ```jsx
 import React from "react";
 const [value, setValue] = React.useState("");
 <>
   <TextField
-    variant="outlined"
     onChange={(e) => setValue(e)}
     value={value}
     isMultiline
@@ -37,12 +31,14 @@ const [value, setValue] = React.useState("");
 
 # Input
 
-Without the `isMultiline` prop, the input component is rendered which has 4 variants:
+Without the `isMultiline` prop, the input component is rendered which has 6 variants:
 
 - Outlined
 - Contained
-- With word count
+- With letter count
 - With end adornment
+- With start adornment
+- Numeric only input
 
 ### Outlined
 
@@ -60,11 +56,15 @@ const [value, setValue] = React.useState("");
 import React from "react";
 const [value, setValue] = React.useState("");
 <>
-  <TextField variant="contained" onChange={(e) => setValue(e)} value={value} />
+  <TextField variant="hybrid" onChange={(e) => setValue(e)} value={value} />
 </>;
 ```
 
-### With word count
+### With letter count
+
+Keep in mind that if you want to restrict letter count, there are 2 props you
+need to send: `showWordCount` and `inputProps`. With `inputProps`, `maxLength`
+as a property is needed to restrict the letter count for the textfield.
 
 ```jsx
 import React from "react";
@@ -75,8 +75,8 @@ const [value, setValue] = React.useState("");
     onChange={(e) => setValue(e)}
     value={value}
     label={"Label"}
-    maxLength={50}
     showWordCount
+    inputProps={{ maxLength: 50 }}
   />
 </>;
 ```
@@ -92,10 +92,27 @@ const [value, setValue] = React.useState("");
     variant="outlined"
     onChange={(e) => setValue(e)}
     value={value}
-    EndIconAdornment={<Close fontSize={"12px"} />}
+    rightAdornment={<Close fontSize={"12px"} />}
   />
 </>;
 ```
+
+### With start adornment
+
+```jsx
+import React from "react";
+import { Close } from "../icon";
+const [value, setValue] = React.useState("");
+<>
+  <TextField
+    variant="outlined"
+    onChange={(e) => setValue(e)}
+    value={value}
+    leftAdornment={<Close fontSize={"12px"} />}
+  />
+</>;
+```
+
 ### Number only input
 
 ```jsx
