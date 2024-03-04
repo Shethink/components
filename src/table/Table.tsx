@@ -9,11 +9,11 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 
-interface Column {
+export interface ColumnProperties {
   id: string;
   label: string;
   minWidth?: number;
-  hidden: boolean;
+  hidden?: boolean;
   align?: "left" | "right" | "center";
   renderCell?: (row: Row) => React.ReactNode;
 }
@@ -23,17 +23,21 @@ interface Row {
 }
 
 export type TableProps = {
-  columns: Column[];
+  columns: ColumnProperties[];
   rows: Row[];
   headerCellStyle?: React.CSSProperties;
   bodyCellStyle?: React.CSSProperties;
-}
+  bodyCellClasses?: string | undefined;
+  headerCellClasses?: string | undefined;
+};
 
 const Table: React.FC<TableProps> = ({
   columns,
   rows,
   headerCellStyle,
   bodyCellStyle,
+  bodyCellClasses,
+  headerCellClasses,
 }) => {
   return (
     <TableContainer component={Box}>
@@ -49,6 +53,7 @@ const Table: React.FC<TableProps> = ({
                   key={column.id}
                   align={column.align}
                   style={{ minWidth: column.minWidth, ...headerCellStyle }}
+                  className={headerCellClasses}
                 >
                   {column.label}
                 </TableCell>
@@ -68,6 +73,7 @@ const Table: React.FC<TableProps> = ({
                     key={column.id}
                     align={column.align}
                     style={{ ...bodyCellStyle }}
+                    className={bodyCellClasses}
                   >
                     {column.renderCell
                       ? column.renderCell(row)
