@@ -1,6 +1,6 @@
-import Accordion, { AccordionProps} from "./accordion";
-import AccordionDetails, { AccordionDetailsProps} from "./accordion-details";
-import AccordionSummary, { AccordionSummaryProps} from "./accordion-summary";
+import Accordion, { AccordionProps } from "./accordion";
+import AccordionDetails, { AccordionDetailsProps } from "./accordion-details";
+import AccordionSummary, { AccordionSummaryProps } from "./accordion-summary";
 import Button, { buttonClasses, ButtonProps, IconButtonProps } from "./button";
 import ButtonRadioGroup, {
   ButtonRadioGroupProps,
@@ -56,6 +56,8 @@ import ThemeProvider, {
 } from "./theme-provider";
 
 import Typography from "./typography";
+import ProgressCircular from "./progress-circular";
+import { ProgressCircularProps } from "./progress-circular";
 
 export {
   Accordion,
@@ -79,6 +81,7 @@ export {
   Modal,
   modalClasses,
   Popover,
+  ProgressCircular,
   popoverClasses,
   poppinsRegularFont,
   poppinsMediumFont,
@@ -116,6 +119,7 @@ export type {
   InputProps,
   ModalProps,
   Option,
+  ProgressCircularProps,
   PopoverProps,
   SelectOption,
   SelectProps,
