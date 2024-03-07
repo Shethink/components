@@ -1,6 +1,6 @@
 {
   "name": "@sourcebae/components",
-  "version": "1.0.39",
+  "version": "1.0.40",
   "license": "UNLICENSED",
   "src": "src/index.ts",
   "main": "dist/index.js",
@@ -66,6 +66,9 @@
       ],
       "popover": [
         "./dist/popover/index.d.ts"
+      ],
+      "progress-circular": [
+        "./dist/progress-circular/index.d.ts"
       ],
       "row": [
         "./dist/row/index.d.ts"
@@ -181,6 +184,11 @@
       "require": "./dist/popover/index.js",
       "import": "./dist/esm/popover/index.js",
       "types": "./dist/popover/index.d.ts"
+    },
+    "./progress-circular": {
+      "require": "./dist/progress-circular/index.js",
+      "import": "./dist/esm/progress-circular/index.js",
+      "types": "./dist/progress-circular/index.d.ts"
     },
     "./row": {
       "require": "./dist/row/index.js",
