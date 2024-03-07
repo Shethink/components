@@ -15,12 +15,12 @@ export interface ColumnProperties<RowType = Record<string, any>> {
   minWidth?: number;
   hidden?: boolean;
   align?: "left" | "right" | "center";
-  renderCell: (row: RowType, index: number) => React.ReactNode;
+  renderCell?: (row: RowType, index: number) => React.ReactNode;
 }
 
 export type TableProps = {
   columns: ColumnProperties[];
-  rows: Record<any, any>[];
+  rows: Record<string, any>[];
   headerCellStyle?: React.CSSProperties;
   bodyCellStyle?: React.CSSProperties;
   bodyCellClasses?: string | undefined;
