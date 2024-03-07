@@ -15,7 +15,7 @@ export interface ColumnProperties {
   minWidth?: number;
   hidden?: boolean;
   align?: "left" | "right" | "center";
-  renderCell?: (row: Row) => React.ReactNode;
+  renderCell?: (row: Row, index: number) => React.ReactNode;
 }
 
 interface Row {
@@ -76,7 +76,7 @@ const Table: React.FC<TableProps> = ({
                     className={bodyCellClasses}
                   >
                     {column.renderCell
-                      ? column.renderCell(row)
+                      ? column.renderCell(row, index)
                       : row[column.id]}
                   </TableCell>
                 );
