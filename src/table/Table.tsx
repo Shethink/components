@@ -9,22 +9,18 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 
-export interface ColumnProperties {
+export interface ColumnProperties<RowType = Record<string, any>> {
   id: string;
   label: string;
   minWidth?: number;
   hidden?: boolean;
   align?: "left" | "right" | "center";
-  renderCell?: (row: Row, index: number) => React.ReactNode;
-}
-
-interface Row {
-  [key: string]: React.ReactNode;
+  renderCell: (row: RowType, index: number) => React.ReactNode;
 }
 
 export type TableProps = {
   columns: ColumnProperties[];
-  rows: Row[];
+  rows: Record<any, any>[];
   headerCellStyle?: React.CSSProperties;
   bodyCellStyle?: React.CSSProperties;
   bodyCellClasses?: string | undefined;
