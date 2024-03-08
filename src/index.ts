@@ -1,6 +1,6 @@
-import Accordion, { AccordionProps} from "./accordion";
-import AccordionDetails, { AccordionDetailsProps} from "./accordion-details";
-import AccordionSummary, { AccordionSummaryProps} from "./accordion-summary";
+import Accordion, { AccordionProps } from "./accordion";
+import AccordionDetails, { AccordionDetailsProps } from "./accordion-details";
+import AccordionSummary, { AccordionSummaryProps } from "./accordion-summary";
 import Button, { buttonClasses, ButtonProps, IconButtonProps } from "./button";
 import ButtonRadioGroup, {
   ButtonRadioGroupProps,
@@ -27,7 +27,7 @@ import { Close, Star, AutoAwesome, ArrowBack, Visibility } from "./icon";
 
 import Modal, { modalClasses, ModalProps } from "./modal";
 
-import Popover,{PopoverProps,popoverClasses} from "./popover";
+import Popover, { PopoverProps, popoverClasses } from "./popover";
 import Row from "./row";
 
 import Select, { SelectProps, SelectOption } from "./select";
@@ -44,6 +44,8 @@ import SequenceList, {
 
 import Switch, { SwitchProps } from "./switch";
 
+import Table, { TableProps } from "./table";
+
 import TextField, { inputClasses, InputProps } from "./text-field";
 import ThemeProvider, {
   poppinsRegularFont,
@@ -54,10 +56,12 @@ import ThemeProvider, {
 } from "./theme-provider";
 
 import Typography from "./typography";
+import ProgressCircular from "./progress-circular";
+import { ProgressCircularProps } from "./progress-circular";
 
 export {
   Accordion,
-  AccordionDetails, 
+  AccordionDetails,
   AccordionSummary,
   AutoAwesome,
   ArrowBack,
@@ -77,6 +81,7 @@ export {
   Modal,
   modalClasses,
   Popover,
+  ProgressCircular,
   popoverClasses,
   poppinsRegularFont,
   poppinsMediumFont,
@@ -88,6 +93,7 @@ export {
   SequencePhase,
   Star,
   Switch,
+  Table,
   TextField,
   ThemeProvider,
   Typography,
@@ -113,6 +119,7 @@ export type {
   InputProps,
   ModalProps,
   Option,
+  ProgressCircularProps,
   PopoverProps,
   SelectOption,
   SelectProps,
@@ -121,5 +128,6 @@ export type {
   SequencePhaseProps,
   SequenceOptions,
   SwitchProps,
+  TableProps,
   ThemeOptions,
 };

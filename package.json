@@ -1,6 +1,6 @@
 {
   "name": "@sourcebae/components",
-  "version": "1.0.36",
+  "version": "1.0.40",
   "license": "UNLICENSED",
   "src": "src/index.ts",
   "main": "dist/index.js",
@@ -67,6 +67,9 @@
       "popover": [
         "./dist/popover/index.d.ts"
       ],
+      "progress-circular": [
+        "./dist/progress-circular/index.d.ts"
+      ],
       "row": [
         "./dist/row/index.d.ts"
       ],
@@ -78,6 +81,9 @@
       ],
       "switch": [
         "./dist/switch/index.d.ts"
+      ],
+      "table": [
+        "./dist/table/index.d.ts"
       ],
       "text-field": [
         "./dist/text-field/index.d.ts"
@@ -179,6 +185,11 @@
       "import": "./dist/esm/popover/index.js",
       "types": "./dist/popover/index.d.ts"
     },
+    "./progress-circular": {
+      "require": "./dist/progress-circular/index.js",
+      "import": "./dist/esm/progress-circular/index.js",
+      "types": "./dist/progress-circular/index.d.ts"
+    },
     "./row": {
       "require": "./dist/row/index.js",
       "import": "./dist/esm/row/index.js",
@@ -208,6 +219,11 @@
       "require": "./dist/divider/index.js",
       "import": "./dist/esm/divider/index.js",
       "types": "./dist/divider/index.d.ts"
+    },
+    "./table": {
+      "require": "./dist/table/index.js",
+      "import": "./dist/esm/table/index.js",
+      "types": "./dist/table/index.d.ts"
     },
     "./text-field": {
       "require": "./dist/text-field/index.js",
