@@ -43,7 +43,9 @@ export type InputProps = Omit<
   errorText?: string;
   variant?: "outlined" | "hybrid";
   isRequired?: boolean;
-  handleChangeEvent?:(e:ChangeEvent<HTMLTextAreaElement | HTMLInputElement>)=>void
+  handleChangeEvent?: (
+    e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+  ) => void;
 } & AdornmentProps;
 
 const TextField: React.FC<InputProps> = ({
@@ -94,7 +96,6 @@ const TextField: React.FC<InputProps> = ({
   const handleChange = (
     event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
   ) => {
-    console.log(!event.target.value.match("^[0-9]+$"));
     if (
       isNumericInput &&
       event.target.value &&
@@ -102,7 +103,7 @@ const TextField: React.FC<InputProps> = ({
     ) {
       return;
     }
-    handleChangeEvent &&handleChangeEvent(event)
+    handleChangeEvent && handleChangeEvent(event);
     onChange && onChange(event.target.value);
   };
 
