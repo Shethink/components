@@ -43,6 +43,7 @@ export type InputProps = Omit<
   errorText?: string;
   variant?: "outlined" | "hybrid";
   isRequired?: boolean;
+  handleChangeEvent?:(e:ChangeEvent<HTMLTextAreaElement | HTMLInputElement>)=>void
 } & AdornmentProps;
 
 const TextField: React.FC<InputProps> = ({
@@ -71,6 +72,7 @@ const TextField: React.FC<InputProps> = ({
   isRequired,
   errorText,
   helperText,
+  handleChangeEvent,
   ...props
 }) => {
   const hasAdornment = error || leftAdornment || rightAdornment;
@@ -100,6 +102,7 @@ const TextField: React.FC<InputProps> = ({
     ) {
       return;
     }
+    handleChangeEvent &&handleChangeEvent(event)
     onChange && onChange(event.target.value);
   };
 
