@@ -60,6 +60,8 @@ const CompleteProfile = ({
   const [selectedIndustries, setSelectedIndustries] = useState<Item[]>([]);
   const [selectedServices, setSelectedServices] = useState<Item[]>([]);
   const [pickedFiles, setPickedFiles] = useState<File[] | []>([]);
+  const [logoFiles, setLogoFiles] = useState<File | null>(null);
+  const [resumeFiles, setResumeFiles] = useState<File | null>(null);
   const [ip, setIp] = useState("");
   interface Item {
     id: number;
@@ -317,6 +319,52 @@ const CompleteProfile = ({
           </>
         )}
 
+         {/* only agency */}
+         {profileType == "agency" && (
+          <StyledBox
+            className={classNames(
+              completeProfileClasses["text-field-container"]
+            )}
+          >
+            <StyledLabel className={classNames(completeProfileClasses.text)}>
+              Upload Your Logo
+            </StyledLabel>
+            <Row style={{ flexWrap: "wrap", marginTop: "10px" }}>
+              {logoFiles && (
+                <StyledBox
+                  className={classNames(
+                    completeProfileClasses["text-field-container"]
+                  )}
+                >
+                  <Button
+                    color='inherit'
+                    variant='outlined'
+                    style={{ margin: "3px" }}
+                    endIcon={<CancelIcon />}
+                    onClick={() => {
+                      setLogoFiles(null);
+                    }}
+                  >
+                    <StyledLabel
+                      className={classNames(completeProfileClasses.text)}
+                    >
+                      {logoFiles.name}
+                    </StyledLabel>
+                  </Button>
+                </StyledBox>
+              )}
+              <FilePicker
+                label='Upload'
+                fileTypes='application/pdf'
+                onChange={(e) => {
+                  console.log(e.target.files);
+                  setLogoFiles(e.target.files[0]);
+                }}
+              />
+            </Row>
+          </StyledBox>
+        )}
+        
         {/* all */}
         <>
           <StyledBox
@@ -356,6 +404,53 @@ const CompleteProfile = ({
             />
           </StyledBox>
         </>
+
+        {/* only marketer */}
+        {profileType == "marketer" && (
+          <StyledBox
+            className={classNames(
+              completeProfileClasses["text-field-container"]
+            )}
+          >
+            <StyledLabel className={classNames(completeProfileClasses.text)}>
+              Upload Your Resume
+            </StyledLabel>
+            <Row style={{ flexWrap: "wrap", marginTop: "10px" }}>
+              {resumeFiles && (
+                <StyledBox
+                  className={classNames(
+                    completeProfileClasses["text-field-container"]
+                  )}
+                >
+                  <Button
+                    color='inherit'
+                    variant='outlined'
+                    style={{ margin: "3px" }}
+                    endIcon={<CancelIcon />}
+                    onClick={() => {
+                      setResumeFiles(null);
+                    }}
+                  >
+                    <StyledLabel
+                      className={classNames(completeProfileClasses.text)}
+                    >
+                      {resumeFiles.name}
+                    </StyledLabel>
+                  </Button>
+                </StyledBox>
+              )}
+              <FilePicker
+                label='Upload'
+                fileTypes='application/pdf'
+                onChange={(e) => {
+                  console.log(e.target.files);
+                  setLogoFiles(e.target.files[0]);
+                }}
+              />
+            </Row>
+          </StyledBox>
+        )}
+
         {/* agency and marketer */}
         {(profileType == "agency" || profileType == "marketer") && (
           <>
@@ -409,17 +504,17 @@ const CompleteProfile = ({
                     </Button>
                   </StyledBox>
                 ))}
+                <FilePicker
+                  label='Upload'
+                  fileTypes='application/pdf'
+                  onChange={(e) => {
+                    console.log(e.target.files && Array.from(e.target.files));
+                    setPickedFiles(
+                      (e.target.files && Array.from(e.target.files)) || []
+                    );
+                  }}
+                />
               </Row>
-              <FilePicker
-                label="Upload"
-                fileTypes="application/pdf"
-                onChange={(e) => {
-                  console.log(e.target.files && Array.from(e.target.files));
-                  setPickedFiles(
-                    (e.target.files && Array.from(e.target.files)) || []
-                  );
-                }}
-              />
             </StyledBox>
           </>
         )}

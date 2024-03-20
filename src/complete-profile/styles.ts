@@ -80,7 +80,7 @@ export const StyledRow = styled(Row)(({ theme }) => ({
   alignItems: "flex-start !important",
   paddingTop: "24px",
   gap: "80px",
-  [theme.breakpoints.down("sm")]: {
+  [theme.breakpoints.down("md")]: {
     flexDirection: "column",
     gap: "24px",
   },
