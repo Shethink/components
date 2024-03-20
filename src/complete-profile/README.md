@@ -14,3 +14,9 @@ There are multiple props that need to be supplied to this component for it to wo
   <CompleteProfile pageTitle="Complete your profile" profileType="marketer" submitButtonLabel="Submit"/>
 </>
 ```
+## Brands
+```jsx
+<>
+<CompleteProfile pageTitle="Complete your profile" profileType="brand" submitButtonLabel="Submit" />
+</>
+```
