@@ -239,9 +239,6 @@ const CompleteProfile = ({
           </>
         )}
 
-        {/* </Row>
-    <Row style={{ justifyContent: 'space-between', gap: '10px', marginTop: '1rem' }}> */}
-
         {/* agency and marketer */}
         {(profileType == "agency" || profileType == "marketer") && (
           <>
@@ -446,7 +443,7 @@ const CompleteProfile = ({
                 isLargeVariant
                 isExtraPadded
                 labelType='normal'
-                placeholder='Product'
+                placeholder='Examples: “Need SEO audit for my website”, “Looking to hire a Google Ads professional”'
               />
             </StyledBox>
             <StyledBox
@@ -460,7 +457,7 @@ const CompleteProfile = ({
                 isLargeVariant
                 isExtraPadded
                 labelType='normal'
-                placeholder='Product'
+                placeholder='Describe what your business does'
                 isMultiline={true}
               />
             </StyledBox>
