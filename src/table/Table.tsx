@@ -18,13 +18,14 @@ export interface ColumnProperties<RowType = Record<string, any>> {
   renderCell?: (row: RowType, index: number) => React.ReactNode;
 }
 
-export type TableProps = {
+export type TableProps<RowType = Record<string, any>> = {
   columns: ColumnProperties[];
-  rows: Record<string, any>[];
+  rows: RowType[];
   headerCellStyle?: React.CSSProperties;
   bodyCellStyle?: React.CSSProperties;
   bodyCellClasses?: string | undefined;
   headerCellClasses?: string | undefined;
+  onRowClick?: (rowData: RowType) => void;
 };
 
 const Table: React.FC<TableProps> = ({
@@ -34,7 +35,14 @@ const Table: React.FC<TableProps> = ({
   bodyCellStyle,
   bodyCellClasses,
   headerCellClasses,
+  onRowClick,
 }) => {
+  const handleRowClick = (rowData: any) => {
+    if (onRowClick) {
+      onRowClick(rowData);
+    }
+  };
+
   return (
     <TableContainer component={Box}>
       <MuiTable aria-label="custom table">
@@ -59,7 +67,7 @@ const Table: React.FC<TableProps> = ({
         </TableHead>
         <TableBody>
           {rows.map((row, index) => (
-            <TableRow key={index}>
+            <TableRow key={index} onClick={() => handleRowClick(row)}>
               {columns.map((column) => {
                 if (column.hidden) {
                   return <></>;
