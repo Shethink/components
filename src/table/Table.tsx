@@ -18,14 +18,14 @@ export interface ColumnProperties<RowType = Record<string, any>> {
   renderCell?: (row: RowType, index: number) => React.ReactNode;
 }
 
-export type TableProps<RowType = Record<string, any>> = {
+export type TableProps = {
   columns: ColumnProperties[];
-  rows: RowType[];
+  rows: Record<string, any>[];
   headerCellStyle?: React.CSSProperties;
   bodyCellStyle?: React.CSSProperties;
   bodyCellClasses?: string | undefined;
   headerCellClasses?: string | undefined;
-  onRowClick?: (rowData: RowType) => void;
+  onRowClick?: (row: Record<string, any>, columnId: string) => void;
 };
 
 const Table: React.FC<TableProps> = ({
@@ -37,9 +37,9 @@ const Table: React.FC<TableProps> = ({
   headerCellClasses,
   onRowClick,
 }) => {
-  const handleRowClick = (rowData: any) => {
+  const handleRowClick = (row: Record<string, any>, columnId: string) => {
     if (onRowClick) {
-      onRowClick(rowData);
+      onRowClick(row, columnId);
     }
   };
 
@@ -50,7 +50,7 @@ const Table: React.FC<TableProps> = ({
           <TableRow>
             {columns.map((column) => {
               if (column.hidden) {
-                return <></>;
+                return <React.Fragment key={column.id}></React.Fragment>;
               }
               return (
                 <TableCell
@@ -66,11 +66,11 @@ const Table: React.FC<TableProps> = ({
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row, index) => (
-            <TableRow key={index} onClick={() => handleRowClick(row)}>
+          {rows.map((row, rowIndex) => (
+            <TableRow key={rowIndex}>
               {columns.map((column) => {
                 if (column.hidden) {
-                  return <></>;
+                  return <React.Fragment key={column.id}></React.Fragment>;
                 }
                 return (
                   <TableCell
@@ -78,9 +78,10 @@ const Table: React.FC<TableProps> = ({
                     align={column.align}
                     style={{ ...bodyCellStyle }}
                     className={bodyCellClasses}
+                    onClick={() => handleRowClick(row, column.id)}
                   >
                     {column.renderCell
-                      ? column.renderCell(row, index)
+                      ? column.renderCell(row, rowIndex)
                       : row[column.id]}
                   </TableCell>
                 );
