@@ -3,6 +3,7 @@ import Typography from "../typography";
 import { Box } from "@mui/material";
 import { CancelIcon, CheckCircleIcon } from "../icon";
 import { margin, padding, width } from "@mui/system";
+import Row from "src/row";
 
 const PREFIX = "CompleteProfile";
 
@@ -23,8 +24,8 @@ export const completeProfileClasses = {
   large: `${PREFIX}-large`,
   "extra-large": `${PREFIX}-extra-large`,
   "text-field-container": `${PREFIX}-text-field-container`,
-  chips: `${PREFIX}-chips`
-
+  "text-field-full": `${PREFIX}-text-field-full`,
+  chips: `${PREFIX}-chips`,
 };
 
 export const StyledLabel = styled(Typography)(({ theme }) => ({
@@ -35,24 +36,30 @@ export const StyledLabel = styled(Typography)(({ theme }) => ({
     [theme.breakpoints.down("sm")]: {
       fontSize: "30px",
     },
-
+  },
+  [`&.${completeProfileClasses.small}`]: {
+    fontSize: "18px",
+    fontWeight: "700",
+    color: theme.colours.black,
   },
   [`&.${completeProfileClasses.text}`]: {
     fontSize: "14px",
     color: theme.colours.black,
-  }
+  },
 }));
 
 export const StyledBox = styled(Box)(({ theme }) => ({
-
   [`&.${completeProfileClasses["text-field-container"]}`]: {
     width: "45%",
     [theme.breakpoints.down("sm")]: {
-      width: '100%'
+      width: "100%",
     },
   },
   [`&.${completeProfileClasses.chips}`]: {
-    margin: '5px'
+    margin: "5px",
+  },
+  [`&.${completeProfileClasses["text-field-full"]}`]: {
+    width: "100%",
   },
 }));
 export const StyledCheckCircle = styled(CheckCircleIcon)(() => ({
@@ -68,4 +75,13 @@ export const StyledCheckCross = styled(CancelIcon)(() => ({
   width: "32px",
   height: "32px",
   color: "#EF5455",
+}));
+export const StyledRow = styled(Row)(({ theme }) => ({
+  alignItems: "flex-start !important",
+  paddingTop: "24px",
+  gap: "80px",
+  [theme.breakpoints.down("sm")]: {
+    flexDirection: "column",
+    gap: "24px",
+  },
 }));
