@@ -1,8 +1,3 @@
-import {
-  ButtonProps as MuiButtonProps,
-  IconButtonProps as MuiIconButtonProps,
-} from "@mui/material";
-import classnames from "classnames";
 import React, { ReactNode, useState } from "react";
 import {
   StyledLabel,
@@ -181,8 +176,8 @@ const CompleteProfile = ({
               label={"Name"}
               isLargeVariant
               isExtraPadded
-              labelType='normal'
-              placeholder='John Doe'
+              labelType="normal"
+              placeholder="John Doe"
             />
           </StyledBox>
         )}
@@ -202,8 +197,8 @@ const CompleteProfile = ({
                 label={"Agency Name"}
                 isLargeVariant
                 isExtraPadded
-                labelType='normal'
-                placeholder='John Doe'
+                labelType="normal"
+                placeholder="John Doe"
               />
             </StyledBox>
             <StyledBox
@@ -218,8 +213,8 @@ const CompleteProfile = ({
                 label={"Website"}
                 isLargeVariant
                 isExtraPadded
-                labelType='normal'
-                placeholder='shethink.com'
+                labelType="normal"
+                placeholder="shethink.com"
               />
             </StyledBox>
             <StyledBox
@@ -234,8 +229,8 @@ const CompleteProfile = ({
                 label={"Agency Linkedin URL"}
                 isLargeVariant
                 isExtraPadded
-                labelType='normal'
-                placeholder='shethink.com'
+                labelType="normal"
+                placeholder="shethink.com"
               />
             </StyledBox>
           </>
@@ -256,8 +251,8 @@ const CompleteProfile = ({
                 label={"Location"}
                 isLargeVariant
                 isExtraPadded
-                labelType='normal'
-                placeholder='Indore, India'
+                labelType="normal"
+                placeholder="Indore, India"
               />
             </StyledBox>
             <StyledBox
@@ -275,8 +270,8 @@ const CompleteProfile = ({
                 label={"Email"}
                 isLargeVariant
                 isExtraPadded
-                labelType='normal'
-                placeholder='johndoe@gmail.com'
+                labelType="normal"
+                placeholder="johndoe@gmail.com"
                 EndIconAdornment={
                   email ? (
                     isEmailValid ? (
@@ -305,9 +300,9 @@ const CompleteProfile = ({
                 label={"Phone"}
                 isLargeVariant
                 isExtraPadded
-                labelType='normal'
+                labelType="normal"
                 isNumericInput
-                placeholder='1234567890'
+                placeholder="1234567890"
                 EndIconAdornment={
                   phone ? (
                     isPhoneValid ? (
@@ -471,8 +466,8 @@ const CompleteProfile = ({
                 label={"IPs (Optional)"}
                 isLargeVariant
                 isExtraPadded
-                labelType='normal'
-                placeholder='Product'
+                labelType="normal"
+                placeholder="Product"
               />
             </StyledBox>
             <StyledBox
@@ -491,8 +486,8 @@ const CompleteProfile = ({
                     )}
                   >
                     <Button
-                      color='inherit'
-                      variant='outlined'
+                      color="inherit"
+                      variant="outlined"
                       style={{ margin: "3px" }}
                       endIcon={<CancelIcon />}
                       onClick={() => {
@@ -537,8 +532,8 @@ const CompleteProfile = ({
                 label={"Project title"}
                 isLargeVariant
                 isExtraPadded
-                labelType='normal'
-                placeholder='Examples: “Need SEO audit for my website”, “Looking to hire a Google Ads professional”'
+                labelType="normal"
+                placeholder="Examples: “Need SEO audit for my website”, “Looking to hire a Google Ads professional”"
               />
             </StyledBox>
             <StyledBox
@@ -551,8 +546,8 @@ const CompleteProfile = ({
                 label={"Project Description (optional)"}
                 isLargeVariant
                 isExtraPadded
-                labelType='normal'
-                placeholder='Describe what your business does'
+                labelType="normal"
+                placeholder="Describe what your business does"
                 isMultiline={true}
               />
             </StyledBox>
@@ -564,24 +559,24 @@ const CompleteProfile = ({
               </StyledLabel>
               <StyledRow>
                 <StyledBox>
-                  <StyledLabel variant='body1' sx={{ opacity: 0.7 }}>
+                  <StyledLabel variant="body1" sx={{ opacity: 0.7 }}>
                     Estimated budget for this project
                   </StyledLabel>
                   <StyledBox sx={{ paddingTop: "16px" }}>
-                    <Checkbox label='$0-100' color='black' />
-                    <Checkbox label='$1000-2500' color='black' />
-                    <Checkbox label='$2500-5000' color='black' />
-                    <Checkbox label='$5000+' color='black' />
+                    <Checkbox label="$0-100" color="black" />
+                    <Checkbox label="$1000-2500" color="black" />
+                    <Checkbox label="$2500-5000" color="black" />
+                    <Checkbox label="$5000+" color="black" />
                   </StyledBox>
                 </StyledBox>
                 <StyledBox>
-                  <StyledLabel variant='body1' sx={{ opacity: 0.7 }}>
+                  <StyledLabel variant="body1" sx={{ opacity: 0.7 }}>
                     Estimated time for this project
                   </StyledLabel>
                   <StyledBox sx={{ paddingTop: "16px" }}>
-                    <Checkbox label='Less than 1 month' color='black' />
-                    <Checkbox label='1 -3 months' color='black' />
-                    <Checkbox label='More than 3 months' color='black' />
+                    <Checkbox label="Less than 1 month" color="black" />
+                    <Checkbox label="1 -3 months" color="black" />
+                    <Checkbox label="More than 3 months" color="black" />
                   </StyledBox>
                 </StyledBox>
               </StyledRow>
@@ -595,7 +590,7 @@ const CompleteProfile = ({
       >
         <Button
           isBlackButton
-          component='span'
+          component="span"
           style={{
             marginTop: "20px",
             paddingLeft: "30px",

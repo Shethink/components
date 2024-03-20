@@ -3,7 +3,7 @@ import Typography from "../typography";
 import { Box } from "@mui/material";
 import { CancelIcon, CheckCircleIcon } from "../icon";
 import { margin, padding, width } from "@mui/system";
-import Row from "src/row";
+import Row from "../row";
 
 const PREFIX = "CompleteProfile";
 

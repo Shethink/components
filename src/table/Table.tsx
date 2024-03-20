@@ -25,6 +25,7 @@ export type TableProps = {
   bodyCellStyle?: React.CSSProperties;
   bodyCellClasses?: string | undefined;
   headerCellClasses?: string | undefined;
+  onRowClick?: (row: Record<string, any>, columnId: string) => void;
 };
 
 const Table: React.FC<TableProps> = ({
@@ -34,7 +35,14 @@ const Table: React.FC<TableProps> = ({
   bodyCellStyle,
   bodyCellClasses,
   headerCellClasses,
+  onRowClick,
 }) => {
+  const handleRowClick = (row: Record<string, any>, columnId: string) => {
+    if (onRowClick) {
+      onRowClick(row, columnId);
+    }
+  };
+
   return (
     <TableContainer component={Box}>
       <MuiTable aria-label="custom table">
@@ -42,7 +50,7 @@ const Table: React.FC<TableProps> = ({
           <TableRow>
             {columns.map((column) => {
               if (column.hidden) {
-                return <></>;
+                return <React.Fragment key={column.id}></React.Fragment>;
               }
               return (
                 <TableCell
@@ -58,11 +66,11 @@ const Table: React.FC<TableProps> = ({
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row, index) => (
-            <TableRow key={index}>
+          {rows.map((row, rowIndex) => (
+            <TableRow key={rowIndex}>
               {columns.map((column) => {
                 if (column.hidden) {
-                  return <></>;
+                  return <React.Fragment key={column.id}></React.Fragment>;
                 }
                 return (
                   <TableCell
@@ -70,9 +78,10 @@ const Table: React.FC<TableProps> = ({
                     align={column.align}
                     style={{ ...bodyCellStyle }}
                     className={bodyCellClasses}
+                    onClick={() => handleRowClick(row, column.id)}
                   >
                     {column.renderCell
-                      ? column.renderCell(row, index)
+                      ? column.renderCell(row, rowIndex)
                       : row[column.id]}
                   </TableCell>
                 );
