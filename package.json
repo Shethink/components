@@ -295,5 +295,4 @@
     "react-dom": ">=16.8.0"
   },
   "sideEffects": false,
-  "packageManager": "yarn@4.1.1"
 }
