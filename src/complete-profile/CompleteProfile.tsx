@@ -16,6 +16,9 @@ import CustomSelect from "../custom-select";
 import FilePicker from "../file-picker";
 import Button from "../button";
 import Checkbox from "../checkbox";
+import { InputAdornment } from "@mui/material";
+import { AccountCircle } from "@mui/icons-material";
+import Divider from "../divider";
 
 interface Item {
   id: number;
@@ -39,6 +42,10 @@ export type CompleteProfileProps = {
   profileType?: "agency" | "marketer" | "brand";
   submitButtonLabel?: string;
   onSubmit: (data: ProfileData) => void;
+  onVerifyClick: (data: any) => void;
+  industriesOptionsFromMain: Item[];
+  servicesOptionsFromMain: Item[];
+  languageOptionFromMain: Item[];
 };
 
 const CompleteProfile = ({
@@ -46,11 +53,20 @@ const CompleteProfile = ({
   pageTitle,
   profileType,
   submitButtonLabel,
+  industriesOptionsFromMain,
+  servicesOptionsFromMain,
+  languageOptionFromMain,
   onSubmit,
+  onVerifyClick,
 }: CompleteProfileProps) => {
   const [name, setName] = useState("");
+  const [productName, setProductName] = useState("");
+  const [productUrl, setProductUrl] = useState("");
+  const [productDescription, setProductDescription] = useState("");
+  const [fullName, setFullName] = useState("");
   const [agencyName, setAgencyName] = useState("");
   const [website, setWebsite] = useState("");
+  const [otp, setOTP] = useState("");
   const [linkedinURL, setLinkedinURL] = useState("");
   const [location, setLocation] = useState("");
   const [email, setEmail] = useState("");
@@ -60,6 +76,7 @@ const CompleteProfile = ({
   const [selectedIndustries, setSelectedIndustries] = useState<Item[]>([]);
   const [selectedServices, setSelectedServices] = useState<Item[]>([]);
   const [pickedFiles, setPickedFiles] = useState<File[] | []>([]);
+  const [selectedLanguage, setSelectedLanguage] = useState<Item[]>([]);
   const [ip, setIp] = useState("");
   interface Item {
     id: number;
@@ -131,6 +148,16 @@ const CompleteProfile = ({
     {
       id: 8,
       name: "Digital Agencies",
+    },
+  ];
+  const languageOption: Item[] = [
+    {
+      id: 1,
+      name: "English",
+    },
+    {
+      id: 2,
+      name: "Hindi",
     },
   ];
 
@@ -317,45 +344,54 @@ const CompleteProfile = ({
           </>
         )}
 
-        {/* all */}
-        <>
-          <StyledBox
-            className={classNames(
-              completeProfileClasses["text-field-container"]
-            )}
-          >
-            <CustomSelect
-              label={"Services"}
-              placeholder={"Services"}
-              option={servicesOptions}
-              selectedlist={selectedServices}
-              setselectedList={setSelectedServices}
-              OptionTextStyle={{ fontSize: "14px" }}
-              placeholderStyle={{ fontSize: "14px", color: "#a9a9a9" }}
-              labelStyle={{ fontSize: "14px", marginBottom: "10px" }}
-              isLargeVariant
-              isExtraPadded
-            />
-          </StyledBox>
-          <StyledBox
-            className={classNames(
-              completeProfileClasses["text-field-container"]
-            )}
-          >
-            <CustomSelect
-              label={"Industry"}
-              placeholder={"Industry"}
-              option={industriesOption}
-              selectedlist={selectedIndustries}
-              setselectedList={setSelectedIndustries}
-              OptionTextStyle={{ fontSize: "14px" }}
-              placeholderStyle={{ fontSize: "14px", color: "#a9a9a9" }}
-              labelStyle={{ fontSize: "14px", marginBottom: "10px" }}
-              isLargeVariant
-              isExtraPadded
-            />
-          </StyledBox>
-        </>
+        {(profileType == "agency" || profileType == "marketer") && (
+          <>
+            <StyledBox
+              className={classNames(
+                completeProfileClasses["text-field-container"]
+              )}
+            >
+              <CustomSelect
+                label={"Services"}
+                placeholder={"Services"}
+                option={
+                  servicesOptionsFromMain?.length
+                    ? servicesOptionsFromMain
+                    : servicesOptions
+                }
+                selectedlist={selectedServices}
+                setselectedList={setSelectedServices}
+                OptionTextStyle={{ fontSize: "14px" }}
+                placeholderStyle={{ fontSize: "14px", color: "#a9a9a9" }}
+                labelStyle={{ fontSize: "14px", marginBottom: "10px" }}
+                isLargeVariant
+                isExtraPadded
+              />
+            </StyledBox>
+            <StyledBox
+              className={classNames(
+                completeProfileClasses["text-field-container"]
+              )}
+            >
+              <CustomSelect
+                label={"Industry"}
+                placeholder={"Industry"}
+                option={
+                  industriesOptionsFromMain?.length
+                    ? industriesOptionsFromMain
+                    : industriesOption
+                }
+                selectedlist={selectedIndustries}
+                setselectedList={setSelectedIndustries}
+                OptionTextStyle={{ fontSize: "14px" }}
+                placeholderStyle={{ fontSize: "14px", color: "#a9a9a9" }}
+                labelStyle={{ fontSize: "14px", marginBottom: "10px" }}
+                isLargeVariant
+                isExtraPadded
+              />
+            </StyledBox>
+          </>
+        )}
         {/* agency and marketer */}
         {(profileType == "agency" || profileType == "marketer") && (
           <>
@@ -430,15 +466,52 @@ const CompleteProfile = ({
             <StyledBox
               className={classNames(completeProfileClasses["text-field-full"])}
             >
+              <StyledLabel
+                className={classNames(completeProfileClasses.small)}
+                style={{
+                  fontSize: "1rem",
+                  marginTop: "10px",
+                }}
+              >
+                Brand Details
+              </StyledLabel>
+            </StyledBox>
+            <StyledBox
+              className={classNames(
+                completeProfileClasses["text-field-container"]
+              )}
+            >
               <TextField
                 variant={"outlined"}
-                onChange={(e) => setIp(e)}
-                value={ip}
-                label={"Project title"}
+                onChange={(e) => setProductName(e)}
+                value={productName}
+                label={"Product Name"}
                 isLargeVariant
                 isExtraPadded
                 labelType="normal"
-                placeholder="Examples: “Need SEO audit for my website”, “Looking to hire a Google Ads professional”"
+                placeholder="John Doe"
+              />
+            </StyledBox>
+            <StyledBox
+              className={classNames(
+                completeProfileClasses["text-field-container"]
+              )}
+            >
+              <CustomSelect
+                label={"Industry"}
+                placeholder={"Industry Expertise"}
+                option={
+                  industriesOptionsFromMain?.length
+                    ? industriesOptionsFromMain
+                    : industriesOption
+                }
+                selectedlist={selectedIndustries}
+                setselectedList={setSelectedIndustries}
+                OptionTextStyle={{ fontSize: "14px" }}
+                placeholderStyle={{ fontSize: "14px", color: "#a9a9a9" }}
+                labelStyle={{ fontSize: "14px", marginBottom: "10px" }}
+                isLargeVariant
+                isExtraPadded
               />
             </StyledBox>
             <StyledBox
@@ -446,9 +519,23 @@ const CompleteProfile = ({
             >
               <TextField
                 variant={"outlined"}
-                onChange={(e) => setIp(e)}
-                value={ip}
-                label={"Project Description (optional)"}
+                onChange={(e) => setProductUrl(e)}
+                value={productUrl}
+                label={"Product Url"}
+                isLargeVariant
+                isExtraPadded
+                labelType="normal"
+                placeholder="Enter Product URL"
+              />
+            </StyledBox>
+            <StyledBox
+              className={classNames(completeProfileClasses["text-field-full"])}
+            >
+              <TextField
+                variant={"outlined"}
+                onChange={(e) => setProductDescription(e)}
+                value={productDescription}
+                label={"Product Description (optional)"}
                 isLargeVariant
                 isExtraPadded
                 labelType="normal"
@@ -456,6 +543,230 @@ const CompleteProfile = ({
                 isMultiline={true}
               />
             </StyledBox>
+            <StyledBox
+              className={classNames(completeProfileClasses["text-field-full"])}
+            >
+              <StyledLabel
+                className={classNames(completeProfileClasses.small)}
+                style={{
+                  fontSize: "1rem",
+                  marginTop: "15px",
+                }}
+              >
+                Location and Language
+              </StyledLabel>
+            </StyledBox>
+            <StyledBox
+              className={classNames(
+                completeProfileClasses["text-field-container"]
+              )}
+            >
+              <TextField
+                variant={"outlined"}
+                onChange={(e) => setLocation(e)}
+                value={location}
+                label={"Agency Location"}
+                isLargeVariant
+                isExtraPadded
+                labelType="normal"
+                EndIconAdornment
+                placeholder="Indore, India"
+              />
+            </StyledBox>
+            <StyledBox
+              className={classNames(
+                completeProfileClasses["text-field-container"]
+              )}
+            >
+              <CustomSelect
+                label={"Language"}
+                placeholder={"Language"}
+                option={
+                  languageOptionFromMain?.length
+                    ? languageOptionFromMain
+                    : languageOption
+                }
+                selectedlist={selectedLanguage}
+                setselectedList={setSelectedLanguage}
+                OptionTextStyle={{ fontSize: "14px" }}
+                placeholderStyle={{ fontSize: "14px", color: "#a9a9a9" }}
+                labelStyle={{ fontSize: "14px", marginBottom: "10px" }}
+                isLargeVariant
+                isExtraPadded
+              />
+            </StyledBox>
+            <StyledBox
+              className={classNames(completeProfileClasses["text-field-full"])}
+              style={{ marginTop: "15px" }}
+            >
+              <Divider width="100%" height="1px" color="#D7D8E1" />
+            </StyledBox>
+            <StyledBox
+              className={classNames(completeProfileClasses["text-field-full"])}
+            >
+              <StyledLabel
+                className={classNames(completeProfileClasses.small)}
+                style={{
+                  fontSize: "1rem",
+                  marginTop: "15px",
+                }}
+              >
+                Contact Details
+              </StyledLabel>
+            </StyledBox>
+            <StyledBox
+              className={classNames(
+                completeProfileClasses["text-field-container"]
+              )}
+            >
+              <TextField
+                variant={"outlined"}
+                onChange={(e) => setFullName(e)}
+                value={fullName}
+                label={"Full Name"}
+                isLargeVariant
+                isExtraPadded
+                labelType="normal"
+                placeholder="John Doe"
+                isMultiline={true}
+              />
+            </StyledBox>
+            <StyledBox
+              className={classNames(
+                completeProfileClasses["text-field-container"]
+              )}
+            >
+              <TextField
+                variant={"outlined"}
+                onChange={(e) => setWebsite(e)}
+                value={website}
+                label={"Website"}
+                isLargeVariant
+                isExtraPadded
+                labelType="normal"
+                placeholder="shethink.com"
+              />
+            </StyledBox>
+            <StyledBox
+              className={classNames(
+                completeProfileClasses["text-field-container"]
+              )}
+            >
+              <TextField
+                variant={"outlined"}
+                onChange={(e) => {
+                  validateEmail(e);
+                  setEmail(e);
+                }}
+                value={email}
+                label={"Email"}
+                isLargeVariant
+                isExtraPadded
+                labelType="normal"
+                placeholder="johndoe@gmail.com"
+                EndIconAdornment={
+                  email ? (
+                    isEmailValid ? (
+                      <StyledCheckCircle />
+                    ) : (
+                      <StyledCheckCross />
+                    )
+                  ) : (
+                    <></>
+                  )
+                }
+              />
+            </StyledBox>
+            <StyledBox
+              className={classNames(
+                completeProfileClasses["text-field-container"]
+              )}
+            >
+              <TextField
+                variant={"outlined"}
+                onChange={(e) => {
+                  validateNumber(e);
+                  setPhone(e);
+                }}
+                value={phone}
+                label={"Phone"}
+                isLargeVariant
+                isExtraPadded
+                labelType="normal"
+                isNumericInput
+                placeholder="1234567890"
+                EndIconAdornment={
+                  phone ? (
+                    isPhoneValid ? (
+                      <StyledCheckCircle />
+                    ) : (
+                      <StyledCheckCross />
+                    )
+                  ) : (
+                    <></>
+                  )
+                }
+              />
+              <StyledLabel
+                className={classNames(completeProfileClasses.small)}
+                style={{
+                  fontSize: "0.75rem",
+                  textAlign: "right",
+                  marginTop: "4px",
+                  textDecoration: "underline",
+                }}
+                onClick={() => {
+                  onVerifyClick({
+                    phone,
+                  });
+                }}
+              >
+                Verify
+              </StyledLabel>
+            </StyledBox>
+            <StyledBox
+              className={classNames(
+                completeProfileClasses["text-field-container"]
+              )}
+            >
+              <TextField
+                variant={"outlined"}
+                onChange={(e) => setOTP(e)}
+                value={otp}
+                label={"Verify OTP sent on your Number"}
+                isLargeVariant
+                isExtraPadded
+                labelType="normal"
+                placeholder="123456"
+              />
+            </StyledBox>
+            <StyledBox
+              className={classNames(
+                completeProfileClasses["text-field-container"]
+              )}
+            >
+              <StyledRow>
+                <StyledBox>
+                  <StyledLabel variant="body1" sx={{ opacity: 0.7 }}>
+                    Preferred contact method
+                  </StyledLabel>
+                  <StyledBox
+                    sx={{
+                      paddingTop: "16px",
+                      display: "flex",
+                      gap: "5%",
+                      fontSize: "16px",
+                      fontWeight: "500",
+                    }}
+                  >
+                    <Checkbox label="Email" color="black" />
+                    <Checkbox label="Phone" color="black" />
+                    <Checkbox label="Whatsapp" color="black" />
+                  </StyledBox>
+                </StyledBox>
+              </StyledRow>
+            </StyledBox>
+
             <StyledBox
               className={classNames(completeProfileClasses["text-field-full"])}
             >
