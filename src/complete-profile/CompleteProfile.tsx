@@ -15,7 +15,7 @@ import { CancelIcon, CheckCircleIcon } from "../icon";
 import CustomSelect from "../custom-select";
 import FilePicker from "../file-picker";
 import Button from "../button";
-import Checkbox from "../checkbox";
+import Checkbox from "../checkbox-group";
 import { InputAdornment } from "@mui/material";
 import { AccountCircle } from "@mui/icons-material";
 import Divider from "../divider";

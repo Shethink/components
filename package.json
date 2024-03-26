@@ -1,6 +1,6 @@
 {
   "name": "@sourcebae/components",
-  "version": "1.0.45",
+  "version": "1.1.0",
   "license": "UNLICENSED",
   "src": "src/index.ts",
   "main": "dist/index.js",
@@ -37,8 +37,8 @@
       "button-radio-group": [
         "./dist/button-radio-group/index.d.ts"
       ],
-      "checkbox": [
-        "./dist/checkbox/index.d.ts"
+      "checkbox-group": [
+        "./dist/checkbox-group/index.d.ts"
       ],
       "chip": [
         "./dist/chip/index.d.ts"
@@ -135,10 +135,10 @@
       "import": "./dist/esm/button-radio-group/index.js",
       "types": "./dist/button-radio-group/index.d.ts"
     },
-    "./checkbox": {
-      "require": "./dist/checkbox/index.js",
-      "import": "./dist/esm/checkbox/index.js",
-      "types": "./dist/checkbox/index.d.ts"
+    "./checkbox-group": {
+      "require": "./dist/checkbox-group/index.js",
+      "import": "./dist/esm/checkbox-group/index.js",
+      "types": "./dist/checkbox-group/index.d.ts"
     },
     "./chip": {
       "require": "./dist/chip/index.js",

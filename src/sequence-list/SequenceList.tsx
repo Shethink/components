@@ -12,7 +12,7 @@ import {
   sequencePhaseContainerClasses,
 } from "./styles";
 import Row from "../row";
-import Checkbox from "../checkbox";
+import Checkbox from "../checkbox-group";
 import { Typography, Tooltip } from "@mui/material";
 import { colours } from "../theme-provider";
 import classNames from "classnames";
