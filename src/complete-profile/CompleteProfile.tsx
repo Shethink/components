@@ -19,6 +19,7 @@ import Checkbox from "../checkbox-group";
 import { InputAdornment } from "@mui/material";
 import { AccountCircle } from "@mui/icons-material";
 import Divider from "../divider";
+import CheckboxGroup from "../checkbox-group";
 
 interface Item {
   id: number;
@@ -46,6 +47,9 @@ export type CompleteProfileProps = {
   industriesOptionsFromMain: Item[];
   servicesOptionsFromMain: Item[];
   languageOptionFromMain: Item[];
+  onContactOptionChange?: (checked: string[]) => void;
+  onBudgetChange?: (checked: string[]) => void;
+  onDurationChange?: (checked: string[]) => void;
 };
 
 const CompleteProfile = ({
@@ -58,6 +62,9 @@ const CompleteProfile = ({
   languageOptionFromMain,
   onSubmit,
   onVerifyClick,
+  onContactOptionChange,
+  onBudgetChange,
+  onDurationChange,
 }: CompleteProfileProps) => {
   const [name, setName] = useState("");
   const [productName, setProductName] = useState("");
@@ -160,7 +167,22 @@ const CompleteProfile = ({
       name: "Hindi",
     },
   ];
-
+  const contactOptions = [
+    { label: "Email" },
+    { label: "Phone" },
+    { label: "Whatsapp" },
+  ];
+  const budgetOptions = [
+    { label: "$0-100" },
+    { label: "$1000-2500" },
+    { label: "$2500-5000" },
+    { label: "$5000+" },
+  ];
+  const durationOption = [
+    { label: "Less than 1 month" },
+    { label: "1 -3 months" },
+    { label: "More than 3 months" },
+  ];
   const validateEmail = (email: string) => {
     let isValid = email.match(
       /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -752,16 +774,20 @@ const CompleteProfile = ({
                   </StyledLabel>
                   <StyledBox
                     sx={{
-                      paddingTop: "16px",
                       display: "flex",
                       gap: "5%",
                       fontSize: "16px",
                       fontWeight: "500",
                     }}
                   >
-                    <Checkbox label="Email" color="black" />
-                    <Checkbox label="Phone" color="black" />
-                    <Checkbox label="Whatsapp" color="black" />
+                    <CheckboxGroup
+                      options={contactOptions}
+                      title={""}
+                      direction="row"
+                      onChange={(checked) =>
+                        onContactOptionChange && onContactOptionChange(checked)
+                      }
+                    />
                   </StyledBox>
                 </StyledBox>
               </StyledRow>
@@ -779,10 +805,13 @@ const CompleteProfile = ({
                     Estimated budget for this project
                   </StyledLabel>
                   <StyledBox sx={{ paddingTop: "16px" }}>
-                    <Checkbox label="$0-100" color="black" />
-                    <Checkbox label="$1000-2500" color="black" />
-                    <Checkbox label="$2500-5000" color="black" />
-                    <Checkbox label="$5000+" color="black" />
+                    <CheckboxGroup
+                      options={budgetOptions}
+                      title={""}
+                      onChange={(checked) =>
+                        onBudgetChange && onBudgetChange(checked)
+                      }
+                    />
                   </StyledBox>
                 </StyledBox>
                 <StyledBox>
@@ -790,9 +819,13 @@ const CompleteProfile = ({
                     Estimated time for this project
                   </StyledLabel>
                   <StyledBox sx={{ paddingTop: "16px" }}>
-                    <Checkbox label="Less than 1 month" color="black" />
-                    <Checkbox label="1 -3 months" color="black" />
-                    <Checkbox label="More than 3 months" color="black" />
+                    <CheckboxGroup
+                      options={durationOption}
+                      title={""}
+                      onChange={(checked) =>
+                        onDurationChange && onDurationChange(checked)
+                      }
+                    />
                   </StyledBox>
                 </StyledBox>
               </StyledRow>

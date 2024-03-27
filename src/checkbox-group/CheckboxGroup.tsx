@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useState } from "react";
-import { Container, Title, ItemContainer } from "./styles";
+import { Container, Title, ItemContainer, OptionsContainer } from "./styles";
 import { Variant } from "@mui/material/styles/createTypography";
 import { SxProps } from "@mui/system";
 import { Theme } from "@mui/material";
@@ -12,13 +12,14 @@ export type CheckboxOption = {
 
 export type CheckboxGroupProps = {
   options: CheckboxOption[];
-  title: string;
-  defaultChecked: string[];
+  title?: string;
+  defaultChecked?: string[];
   color?: string;
   titleVariant?: "default" | "inherit" | Variant | "basic-bold" | undefined;
   sx?: SxProps<Theme> | undefined;
   placeholderColor?: string;
   onChange?: (checked: string[]) => void;
+  direction?: "row" | "column";
 };
 
 type CheckboxContainerProps = CheckboxOption & {
@@ -79,31 +80,36 @@ const CheckboxGroup = ({
   defaultChecked = [],
   sx,
   placeholderColor,
+  direction,
   onChange,
 }: CheckboxGroupProps) => {
   const [selected, setSelected] = useState<string[]>(defaultChecked);
 
   return (
     <Container>
-      <Title
-        color={placeholderColor}
-        variant={titleVariant ?? "h6"}
-        component="label"
-      >
-        {title}
-      </Title>
-      {options.map((option) => {
-        return (
-          <CheckboxContainer
-            selected={selected}
-            setSelected={setSelected}
-            onChange={onChange}
-            sx={sx}
-            color={color}
-            {...option}
-          />
-        );
-      })}
+      {title && (
+        <Title
+          color={placeholderColor}
+          variant={titleVariant ?? "h6"}
+          component="label"
+        >
+          {title}
+        </Title>
+      )}
+      <OptionsContainer direction={direction}>
+        {options.map((option) => {
+          return (
+            <CheckboxContainer
+              selected={selected}
+              setSelected={setSelected}
+              onChange={onChange}
+              sx={sx}
+              color={color}
+              {...option}
+            />
+          );
+        })}
+      </OptionsContainer>
     </Container>
   );
 };

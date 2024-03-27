@@ -1,13 +1,19 @@
 import { styled } from "@mui/material/styles";
 import { alpha, formControlLabelClasses } from "@mui/material";
 import Typography from "../typography";
+import Row from "src/row";
 
 export const Container = styled("div")({
   padding: 0,
   display: "flex",
   flexFlow: "column wrap",
-  margin: "12px 0",
 });
+export const OptionsContainer = styled("div")<{ direction?: "row" | "column" }>(
+  ({ theme, direction }) => ({
+    display: "flex",
+    flexDirection: direction || "column",
+  })
+);
 
 export const Title = styled(Typography)<{ color?: string }>(
   ({ theme, color }) => ({
