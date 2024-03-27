@@ -87,7 +87,7 @@ const CheckboxGroup = ({
 
   return (
     <Container>
-      {title ? (
+      {title && (
         <Title
           color={placeholderColor}
           variant={titleVariant ?? "h6"}
@@ -95,8 +95,6 @@ const CheckboxGroup = ({
         >
           {title}
         </Title>
-      ) : (
-        <></>
       )}
       <OptionsContainer direction={direction}>
         {options.map((option) => {
