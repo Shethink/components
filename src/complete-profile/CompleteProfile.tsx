@@ -774,7 +774,6 @@ const CompleteProfile = ({
                   </StyledLabel>
                   <StyledBox
                     sx={{
-                      // paddingTop: "16px",
                       display: "flex",
                       gap: "5%",
                       fontSize: "16px",
@@ -784,14 +783,11 @@ const CompleteProfile = ({
                     <CheckboxGroup
                       options={contactOptions}
                       title={""}
-                      defaultChecked={[]}
                       direction="row"
                       onChange={(checked) =>
                         onContactOptionChange && onContactOptionChange(checked)
                       }
                     />
-                    {/* <Checkbox label="Phone" color="black" />
-                    <Checkbox label="Whatsapp" color="black" /> */}
                   </StyledBox>
                 </StyledBox>
               </StyledRow>
@@ -812,7 +808,6 @@ const CompleteProfile = ({
                     <CheckboxGroup
                       options={budgetOptions}
                       title={""}
-                      defaultChecked={[]}
                       onChange={(checked) =>
                         onBudgetChange && onBudgetChange(checked)
                       }
@@ -827,7 +822,6 @@ const CompleteProfile = ({
                     <CheckboxGroup
                       options={durationOption}
                       title={""}
-                      defaultChecked={[]}
                       onChange={(checked) =>
                         onDurationChange && onDurationChange(checked)
                       }

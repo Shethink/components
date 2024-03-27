@@ -13,7 +13,7 @@ export type CheckboxOption = {
 export type CheckboxGroupProps = {
   options: CheckboxOption[];
   title: string;
-  defaultChecked: string[];
+  defaultChecked?: string[];
   color?: string;
   titleVariant?: "default" | "inherit" | Variant | "basic-bold" | undefined;
   sx?: SxProps<Theme> | undefined;
