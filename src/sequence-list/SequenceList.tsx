@@ -12,7 +12,7 @@ import {
   sequencePhaseContainerClasses,
 } from "./styles";
 import Row from "../row";
-import Checkbox from "../checkbox-group";
+// import Checkbox from "../checkbox-group";
 import { Typography, Tooltip } from "@mui/material";
 import { colours } from "../theme-provider";
 import classNames from "classnames";
@@ -129,10 +129,10 @@ const SequenceItem = memo(
       <SequenceItemWrapper onClick={() => onClickSequence(id)}>
         <section style={{ width: "25%" }}>
           <Row>
-            <Checkbox
+            {/* <Checkbox
               isChecked={isSelected}
               onChange={(checked) => setIsSelected(checked)}
-            />
+            /> */}
             <SequenceBasicDetails>
               <Typography variant="body1" fontWeight={"500"}>
                 {name}
