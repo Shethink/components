@@ -80,7 +80,7 @@ const Select: React.FC<SelectProps> = ({
       isMulti={isMultiple}
       onChange={onChange}
       menuPortalTarget={
-        document !== undefined
+        typeof document !== "undefined"
           ? isInsideModal
             ? (document.querySelector(".MuiModal-root") as HTMLElement)
             : document.body
