@@ -53,7 +53,6 @@ const Select: React.FC<SelectProps> = ({
   isInsideModal,
   optionsContainCheckbox,
   onChange,
-
 }) => {
   const animatedComponents = makeAnimated();
 
@@ -81,9 +80,11 @@ const Select: React.FC<SelectProps> = ({
       isMulti={isMultiple}
       onChange={onChange}
       menuPortalTarget={
-        isInsideModal
-          ? (document.querySelector(".MuiModal-root") as HTMLElement)
-          : document.body
+        document !== undefined
+          ? isInsideModal
+            ? (document.querySelector(".MuiModal-root") as HTMLElement)
+            : document.body
+          : null
       }
       isClearable={isClearable}
       placeholder={placeholder ?? "Select..."}
