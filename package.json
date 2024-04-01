@@ -295,5 +295,6 @@
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "packageManager": "yarn@4.1.1"
 }
