@@ -47,6 +47,11 @@ export const StyledLabel = styled(Typography)(({ theme }) => ({
     color: theme.colours.black,
   },
 }));
+export const ErrorText = styled(Typography)({
+  fontSize: "12px",
+  margin: "5px 0px",
+  color: "red",
+});
 
 export const StyledBox = styled(Box)(({ theme }) => ({
   [`&.${completeProfileClasses["text-field-container"]}`]: {

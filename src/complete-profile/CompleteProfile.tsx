@@ -6,6 +6,7 @@ import {
   StyledCheckCircle,
   StyledCheckCross,
   StyledRow,
+  ErrorText,
 } from "./styles";
 import Container from "../container";
 import Row from "../row";
@@ -27,19 +28,22 @@ interface Item {
   name: string;
 }
 type ProfileData = {
-  name: string;
-  agencyName: string;
-  website: string;
-  linkedinURL: string;
-  location: SelectedArea | undefined;
-  email: string;
-  phone: string;
-  selectedIndustries: Item[];
-  portfolio: File[] | [];
-  ip: string;
-  productUrl: string;
-  productName: string;
-  productDescription: string;
+  name?: string;
+  agencyName?: string;
+  website?: string;
+  linkedinURL?: string;
+  location?: SelectedArea | undefined;
+  email?: string;
+  phone?: string;
+  industries?: Item[];
+  languages?: Item[];
+  services?: Item[];
+  portfolio?: File[] | [];
+  ip?: string;
+  productUrl?: string;
+  productName?: string;
+  productDescription?: string;
+  fullName?: string;
 };
 type phoneVerificationInput = { phone: string };
 
@@ -57,6 +61,7 @@ export type CompleteProfileProps = {
   onContactOptionChange?: (checked: string[]) => void;
   onBudgetChange?: (checked: string[]) => void;
   onDurationChange?: (checked: string[]) => void;
+  isOTPVerified?: boolean;
 };
 
 const CompleteProfile = ({
@@ -69,6 +74,7 @@ const CompleteProfile = ({
   languageOptionFromMain,
   onSubmit,
   onVerifyClick,
+  isOTPVerified = true,
   onSendClick,
   onContactOptionChange,
   onBudgetChange,
@@ -84,8 +90,8 @@ const CompleteProfile = ({
   const [otp, setOTP] = useState("");
   const [linkedinURL, setLinkedinURL] = useState("");
   const [location, setLocation] = useState<SelectedArea>();
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState<string>("");
+  const [phone, setPhone] = useState<string>("");
   const [isEmailValid, setIsEmailValid] = useState<boolean>(false);
   const [isPhoneValid, setIsPhoneValid] = useState<boolean>(false);
   const [otpSent, setOtpSent] = useState<boolean>(false);
@@ -785,6 +791,7 @@ const CompleteProfile = ({
                 placeholder="123456"
                 disabled={!otpSent}
               />
+              {!isOTPVerified && <ErrorText>Incorrect OTP</ErrorText>}
             </StyledBox>
             <StyledBox
               className={classNames(
@@ -870,21 +877,48 @@ const CompleteProfile = ({
             paddingRight: "30px",
           }}
           onClick={() => {
-            onSubmit({
-              name,
-              agencyName,
-              website,
-              linkedinURL,
-              location,
-              email,
-              phone,
-              selectedIndustries,
-              portfolio: pickedFiles,
-              ip,
-              productUrl,
-              productName,
-              productDescription,
-            });
+            let data;
+            if (profileType == "brand") {
+              data = {
+                productUrl,
+                productName,
+                productDescription,
+                industries: selectedIndustries,
+                location,
+                languages: selectedLanguage,
+                fullName,
+                email,
+                phone,
+                website,
+              };
+            } else if (profileType == "marketer") {
+              data = {
+                industries: selectedIndustries,
+                location,
+                name,
+                email,
+                phone,
+                website,
+                ip,
+                portfolio: pickedFiles,
+              };
+            } else {
+              data = {
+                name,
+                agencyName,
+                website,
+                linkedinURL,
+                location,
+                email,
+                phone,
+                services: selectedServices,
+                industries: selectedIndustries,
+                ip,
+                portfolio: pickedFiles,
+              };
+            }
+
+            onSubmit(data);
           }}
         >
           {submitButtonLabel}
