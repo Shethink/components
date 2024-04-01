@@ -6,6 +6,7 @@ import {
   StyledCheckCircle,
   StyledCheckCross,
   StyledRow,
+  ErrorText,
 } from "./styles";
 import Container from "../container";
 import Row from "../row";
@@ -57,6 +58,7 @@ export type CompleteProfileProps = {
   onContactOptionChange?: (checked: string[]) => void;
   onBudgetChange?: (checked: string[]) => void;
   onDurationChange?: (checked: string[]) => void;
+  isOTPVerified?: boolean;
 };
 
 const CompleteProfile = ({
@@ -69,6 +71,7 @@ const CompleteProfile = ({
   languageOptionFromMain,
   onSubmit,
   onVerifyClick,
+  isOTPVerified = true,
   onSendClick,
   onContactOptionChange,
   onBudgetChange,
@@ -84,8 +87,8 @@ const CompleteProfile = ({
   const [otp, setOTP] = useState("");
   const [linkedinURL, setLinkedinURL] = useState("");
   const [location, setLocation] = useState<SelectedArea>();
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState<string>("");
+  const [phone, setPhone] = useState<string>("");
   const [isEmailValid, setIsEmailValid] = useState<boolean>(false);
   const [isPhoneValid, setIsPhoneValid] = useState<boolean>(false);
   const [otpSent, setOtpSent] = useState<boolean>(false);
@@ -785,6 +788,7 @@ const CompleteProfile = ({
                 placeholder="123456"
                 disabled={!otpSent}
               />
+              {!isOTPVerified && <ErrorText>Incorrect OTP</ErrorText>}
             </StyledBox>
             <StyledBox
               className={classNames(
