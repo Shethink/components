@@ -721,6 +721,7 @@ const CompleteProfile = ({
                 labelType="normal"
                 isNumericInput
                 placeholder="1234567890"
+                inputProps={{ maxLength: 10 }}
                 EndIconAdornment={
                   phone ? (
                     isPhoneValid ? (
@@ -748,11 +749,11 @@ const CompleteProfile = ({
                         phone,
                       });
                   } else {
-                    setOtpSent(true);
                     onSendClick &&
                       onSendClick({
                         phone,
                       });
+                    setOtpSent(true);
                   }
                 }}
               >
@@ -771,6 +772,7 @@ const CompleteProfile = ({
                 label={"Verify OTP sent on your Number"}
                 isLargeVariant
                 isExtraPadded
+                inputProps={{ maxLength: 4 }}
                 labelType="normal"
                 placeholder="123456"
                 disabled={!otpSent}
