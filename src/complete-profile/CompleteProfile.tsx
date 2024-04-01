@@ -823,44 +823,6 @@ const CompleteProfile = ({
                 </StyledBox>
               </StyledRow>
             </StyledBox>
-
-            <StyledBox
-              className={classNames(completeProfileClasses["text-field-full"])}
-            >
-              <StyledLabel className={classNames(completeProfileClasses.small)}>
-                Budget and timing
-              </StyledLabel>
-              <StyledRow>
-                <StyledBox>
-                  <StyledLabel variant="body1" sx={{ opacity: 0.7 }}>
-                    Estimated budget for this project
-                  </StyledLabel>
-                  <StyledBox sx={{ paddingTop: "16px" }}>
-                    <CheckboxGroup
-                      options={budgetOptions}
-                      title={""}
-                      onChange={(checked) =>
-                        onBudgetChange && onBudgetChange(checked)
-                      }
-                    />
-                  </StyledBox>
-                </StyledBox>
-                <StyledBox>
-                  <StyledLabel variant="body1" sx={{ opacity: 0.7 }}>
-                    Estimated time for this project
-                  </StyledLabel>
-                  <StyledBox sx={{ paddingTop: "16px" }}>
-                    <CheckboxGroup
-                      options={durationOption}
-                      title={""}
-                      onChange={(checked) =>
-                        onDurationChange && onDurationChange(checked)
-                      }
-                    />
-                  </StyledBox>
-                </StyledBox>
-              </StyledRow>
-            </StyledBox>
           </>
         )}
       </Row>
@@ -901,6 +863,7 @@ const CompleteProfile = ({
                 website,
                 ip,
                 portfolio: pickedFiles,
+                services: selectedServices,
               };
             } else {
               data = {
