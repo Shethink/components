@@ -44,6 +44,7 @@ export type CompleteProfileProps = {
   submitButtonLabel?: string;
   onSubmit: (data: ProfileData) => void;
   onVerifyClick: (data: any) => void;
+  onSendClick: (data: any) => void;
   industriesOptionsFromMain: Item[];
   servicesOptionsFromMain: Item[];
   languageOptionFromMain: Item[];
@@ -62,6 +63,7 @@ const CompleteProfile = ({
   languageOptionFromMain,
   onSubmit,
   onVerifyClick,
+  onSendClick,
   onContactOptionChange,
   onBudgetChange,
   onDurationChange,
@@ -80,6 +82,7 @@ const CompleteProfile = ({
   const [phone, setPhone] = useState("");
   const [isEmailValid, setIsEmailValid] = useState(false);
   const [isPhoneValid, setIsPhoneValid] = useState(false);
+  const [otpSent, setOtpSent] = useState(false);
   const [selectedIndustries, setSelectedIndustries] = useState<Item[]>([]);
   const [selectedServices, setSelectedServices] = useState<Item[]>([]);
   const [pickedFiles, setPickedFiles] = useState<File[] | []>([]);
@@ -709,6 +712,7 @@ const CompleteProfile = ({
                 onChange={(e) => {
                   validateNumber(e);
                   setPhone(e);
+                  setOtpSent(false);
                 }}
                 value={phone}
                 label={"Phone"}
@@ -738,12 +742,21 @@ const CompleteProfile = ({
                   textDecoration: "underline",
                 }}
                 onClick={() => {
-                  onVerifyClick({
-                    phone,
-                  });
+                  if (otpSent) {
+                    onVerifyClick &&
+                      onVerifyClick({
+                        phone,
+                      });
+                  } else {
+                    setOtpSent(true);
+                    onSendClick &&
+                      onSendClick({
+                        phone,
+                      });
+                  }
                 }}
               >
-                Verify
+                {otpSent ? "Verify" : "Send Otp"}
               </StyledLabel>
             </StyledBox>
             <StyledBox
@@ -760,6 +773,7 @@ const CompleteProfile = ({
                 isExtraPadded
                 labelType="normal"
                 placeholder="123456"
+                disabled={!otpSent}
               />
             </StyledBox>
             <StyledBox
