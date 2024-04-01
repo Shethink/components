@@ -85,3 +85,11 @@ export const StyledRow = styled(Row)(({ theme }) => ({
     gap: "24px",
   },
 }));
+
+export const SelectorContainer = styled(Row)(({ theme }) => ({
+  gap: "20px",
+  marginTop: "10px",
+  [theme.breakpoints.down("sm")]: {
+    gap: "15px",
+  },
+}));

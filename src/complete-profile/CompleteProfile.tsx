@@ -20,6 +20,7 @@ import { InputAdornment } from "@mui/material";
 import { AccountCircle } from "@mui/icons-material";
 import Divider from "../divider";
 import CheckboxGroup from "../checkbox-group";
+import Selectors, { SelectedArea } from "./Selectors";
 
 interface Item {
   id: number;
@@ -30,12 +31,15 @@ type ProfileData = {
   agencyName: string;
   website: string;
   linkedinURL: string;
-  location: string;
+  location: SelectedArea | undefined;
   email: string;
   phone: string;
   selectedIndustries: Item[];
   portfolio: File[] | [];
   ip: string;
+  productUrl: string;
+  productName: string;
+  productDescription: string;
 };
 export type CompleteProfileProps = {
   children: ReactNode;
@@ -75,7 +79,7 @@ const CompleteProfile = ({
   const [website, setWebsite] = useState("");
   const [otp, setOTP] = useState("");
   const [linkedinURL, setLinkedinURL] = useState("");
-  const [location, setLocation] = useState("");
+  const [location, setLocation] = useState<SelectedArea>();
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [isEmailValid, setIsEmailValid] = useState(false);
@@ -184,10 +188,15 @@ const CompleteProfile = ({
     { label: "More than 3 months" },
   ];
   const validateEmail = (email: string) => {
-    let isValid = email.match(
-      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    );
+    console.log(email, "sss");
+    let isValid = String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+
     setIsEmailValid(!!isValid);
+    console.log(!!isValid, "ssss");
   };
   function validateNumber(num: string) {
     let isValid = num.match(/^(\d{3})[- ]?(\d{3})[- ]?(\d{4})$/);
@@ -291,15 +300,13 @@ const CompleteProfile = ({
                 completeProfileClasses["text-field-container"]
               )}
             >
-              <TextField
-                variant={"outlined"}
-                onChange={(e) => setLocation(e)}
-                value={location}
-                label={"Location"}
-                isLargeVariant
-                isExtraPadded
-                labelType="normal"
-                placeholder="Indore, India"
+              <StyledLabel className={classNames(completeProfileClasses.text)}>
+                Location
+              </StyledLabel>
+              <Selectors
+                setSelectedArea={(data) => {
+                  setLocation(data);
+                }}
               />
             </StyledBox>
             <StyledBox
@@ -319,7 +326,7 @@ const CompleteProfile = ({
                 isExtraPadded
                 labelType="normal"
                 placeholder="johndoe@gmail.com"
-                EndIconAdornment={
+                rightAdornment={
                   email ? (
                     isEmailValid ? (
                       <StyledCheckCircle />
@@ -350,7 +357,8 @@ const CompleteProfile = ({
                 labelType="normal"
                 isNumericInput
                 placeholder="1234567890"
-                EndIconAdornment={
+                inputProps={{ maxLength: 10 }}
+                rightAdornment={
                   phone ? (
                     isPhoneValid ? (
                       <StyledCheckCircle />
@@ -583,16 +591,13 @@ const CompleteProfile = ({
                 completeProfileClasses["text-field-container"]
               )}
             >
-              <TextField
-                variant={"outlined"}
-                onChange={(e) => setLocation(e)}
-                value={location}
-                label={"Agency Location"}
-                isLargeVariant
-                isExtraPadded
-                labelType="normal"
-                EndIconAdornment
-                placeholder="Indore, India"
+              <StyledLabel className={classNames(completeProfileClasses.text)}>
+                Location
+              </StyledLabel>
+              <Selectors
+                setSelectedArea={(data) => {
+                  setLocation(data);
+                }}
               />
             </StyledBox>
             <StyledBox
@@ -686,7 +691,7 @@ const CompleteProfile = ({
                 isExtraPadded
                 labelType="normal"
                 placeholder="johndoe@gmail.com"
-                EndIconAdornment={
+                rightAdornment={
                   email ? (
                     isEmailValid ? (
                       <StyledCheckCircle />
@@ -716,8 +721,9 @@ const CompleteProfile = ({
                 isExtraPadded
                 labelType="normal"
                 isNumericInput
+                inputProps={{ maxLength: 10 }}
                 placeholder="1234567890"
-                EndIconAdornment={
+                rightAdornment={
                   phone ? (
                     isPhoneValid ? (
                       <StyledCheckCircle />
@@ -736,11 +742,13 @@ const CompleteProfile = ({
                   textAlign: "right",
                   marginTop: "4px",
                   textDecoration: "underline",
+                  cursor: "pointer",
                 }}
                 onClick={() => {
-                  onVerifyClick({
-                    phone,
-                  });
+                  onVerifyClick &&
+                    onVerifyClick({
+                      phone,
+                    });
                 }}
               >
                 Verify
@@ -857,6 +865,9 @@ const CompleteProfile = ({
               selectedIndustries,
               portfolio: pickedFiles,
               ip,
+              productUrl,
+              productName,
+              productDescription,
             });
           }}
         >
