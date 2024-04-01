@@ -41,14 +41,16 @@ type ProfileData = {
   productName: string;
   productDescription: string;
 };
+type phoneVerificationInput = { phone: string };
+
 export type CompleteProfileProps = {
   children: ReactNode;
   pageTitle: string;
   profileType?: "agency" | "marketer" | "brand";
   submitButtonLabel?: string;
   onSubmit: (data: ProfileData) => void;
-  onVerifyClick: (data: any) => void;
-  onSendClick: (data: any) => void;
+  onVerifyClick: (data: phoneVerificationInput) => void;
+  onSendClick: (data: phoneVerificationInput) => void;
   industriesOptionsFromMain: Item[];
   servicesOptionsFromMain: Item[];
   languageOptionFromMain: Item[];
@@ -84,9 +86,9 @@ const CompleteProfile = ({
   const [location, setLocation] = useState<SelectedArea>();
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [isEmailValid, setIsEmailValid] = useState(false);
-  const [isPhoneValid, setIsPhoneValid] = useState(false);
-  const [otpSent, setOtpSent] = useState(false);
+  const [isEmailValid, setIsEmailValid] = useState<boolean>(false);
+  const [isPhoneValid, setIsPhoneValid] = useState<boolean>(false);
+  const [otpSent, setOtpSent] = useState<boolean>(false);
   const [selectedIndustries, setSelectedIndustries] = useState<Item[]>([]);
   const [selectedServices, setSelectedServices] = useState<Item[]>([]);
   const [pickedFiles, setPickedFiles] = useState<File[] | []>([]);
